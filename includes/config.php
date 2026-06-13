@@ -5,7 +5,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-define('BASE_PATH', '/basarirlar');
+// Taban yolu otomatik algılanır: yerelde "/basarirlar", canlıda alan adı kökünde "".
+$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
+define('BASE_PATH', ($scriptDir === '/' || $scriptDir === '.' || $scriptDir === '') ? '' : rtrim($scriptDir, '/'));
 define('SITE_URL', 'https://www.basarirlarkurumsal.com');
 define('SITE_NAME', 'Başarırlar Kurumsal Kırtasiye');
 define('SITE_TAGLINE', "Denizli'nin En Büyük Kurumsal Kırtasiyesi");
