@@ -17,9 +17,20 @@
                 <span></span>
             </button>
             <div class="nav-menu" id="site-menu" data-nav-menu>
-                <?php foreach (nav_items() as $key => $item): ?>
-                    <a class="<?= $activePage === $key ? 'is-active' : ''; ?>" href="<?= e($item['href']); ?>"><?= e($item['label']); ?></a>
+                <?php
+                $mobilePrimaryPages = ['anasayfa', 'urun-gruplari', 'hizmetlerimiz', 'iletisim'];
+                foreach (nav_items() as $key => $item):
+                    $classes = [];
+                    if ($activePage === $key) {
+                        $classes[] = 'is-active';
+                    }
+                    if (!in_array($key, $mobilePrimaryPages, true)) {
+                        $classes[] = 'is-mobile-secondary';
+                    }
+                ?>
+                    <a class="<?= e(implode(' ', $classes)); ?>" href="<?= e($item['href']); ?>"><?= e($item['label']); ?></a>
                 <?php endforeach; ?>
+                <a class="nav-menu__quote" href="<?= e(url('teklif-al')); ?>">Teklif Al</a>
             </div>
             <a class="navbar__cta" href="<?= e(url('teklif-al')); ?>">Teklif Al</a>
         </div>

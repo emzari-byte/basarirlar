@@ -36,7 +36,7 @@ $activePage = $activePage ?? 'anasayfa';
     <meta name="twitter:image" content="<?= e(canonical_url(str_replace(url(''), '', $pageImage))); ?>">
     <link rel="icon" type="image/png" href="<?= e(asset('images/favicon.png')); ?>">
     <link rel="preload" as="image" href="<?= e(asset('images/hero-kurumsal-kirtasiye.jpg')); ?>">
-    <link rel="stylesheet" href="<?= e(asset('css/style.css')); ?>">
+    <link rel="stylesheet" href="<?= e(versioned_asset('css/style.css')); ?>">
     <script type="application/ld+json">
 <?= json_encode(page_schema(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>
     </script>

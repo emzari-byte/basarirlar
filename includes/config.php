@@ -62,6 +62,15 @@ function asset(string $path): string
     return url('assets/' . ltrim($path, '/'));
 }
 
+function versioned_asset(string $path): string
+{
+    $relativePath = ltrim($path, '/');
+    $filePath = dirname(__DIR__) . '/assets/' . $relativePath;
+    $version = is_file($filePath) ? (string) filemtime($filePath) : '1';
+
+    return asset($relativePath) . '?v=' . rawurlencode($version);
+}
+
 function canonical_url(string $path = ''): string
 {
     return rtrim(SITE_URL, '/') . '/' . ltrim($path, '/');

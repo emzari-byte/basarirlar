@@ -40,7 +40,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section mobile-hide">
     <div class="container">
         <div class="section-head">
             <div>

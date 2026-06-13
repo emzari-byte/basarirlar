@@ -175,6 +175,10 @@ select {
     background: var(--brand-soft);
 }
 
+.nav-menu__quote {
+    display: none;
+}
+
 .navbar__cta,
 .btn {
     min-height: 46px;
@@ -1860,6 +1864,10 @@ body.modal-open {
     box-shadow: 0 18px 40px rgba(37, 211, 102, .55);
 }
 
+.mobile-action-bar {
+    display: none;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
     .top-strip__inner {
@@ -1904,6 +1912,27 @@ body.modal-open {
 
     .nav-menu a {
         min-height: 46px;
+    }
+
+    .nav-menu a.is-mobile-secondary:not(.is-active) {
+        display: none;
+    }
+
+    .nav-menu a.nav-menu__quote {
+        display: flex;
+        justify-content: center;
+        min-height: 50px;
+        margin-top: 6px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--brand-2), var(--brand));
+        color: var(--white);
+        box-shadow: 0 12px 24px rgba(244, 122, 31, .24);
+    }
+
+    .nav-menu a.nav-menu__quote:hover,
+    .nav-menu a.nav-menu__quote:focus-visible {
+        color: var(--white);
+        background: linear-gradient(135deg, var(--brand), var(--brand-dark));
     }
 
     .product-grid {
@@ -1994,6 +2023,10 @@ body.modal-open {
 }
 
 @media (max-width: 560px) {
+    body {
+        padding-bottom: calc(78px + env(safe-area-inset-bottom));
+    }
+
     .container {
         width: min(100% - 30px, 1180px);
     }
@@ -2013,6 +2046,19 @@ body.modal-open {
 
     .top-strip {
         display: none;
+    }
+
+    .nav-menu {
+        left: 15px;
+        right: 15px;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .nav-menu a {
+        justify-content: center;
+        min-height: 44px;
+        font-size: .95rem;
     }
 
     .hero {
@@ -2039,7 +2085,7 @@ body.modal-open {
         max-width: 340px;
         margin-top: 14px;
         overflow: hidden;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
 
@@ -2084,6 +2130,10 @@ body.modal-open {
     .trust-grid,
     .brand-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .product-grid {
+        gap: 12px;
     }
 
     .section {
@@ -2131,18 +2181,89 @@ body.modal-open {
         grid-template-columns: 1fr;
         text-align: center;
         justify-items: center;
-        padding: 28px;
+        gap: 16px;
+        padding: 22px 18px;
+    }
+
+    .delivery-band p {
+        display: none;
+    }
+
+    .delivery-band .btn {
+        width: 100%;
     }
 
     .whatsapp-float {
-        width: 54px;
-        height: 54px;
+        display: none;
+    }
+
+    .mobile-action-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 75;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--line-2);
+        background: rgba(255, 255, 255, .96);
+        box-shadow: 0 -14px 34px rgba(18, 27, 41, .12);
+        backdrop-filter: blur(16px);
+    }
+
+    .mobile-action-bar a {
+        min-width: 0;
+        min-height: 54px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border: 1px solid var(--line-2);
+        border-radius: 8px;
+        color: var(--ink-2);
+        background: var(--white);
+        font-size: .74rem;
+        font-weight: 780;
+        line-height: 1.1;
+    }
+
+    .mobile-action-bar svg {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 auto;
+    }
+
+    .mobile-action-bar__primary {
+        border-color: transparent !important;
+        background: linear-gradient(135deg, var(--brand-2), var(--brand)) !important;
+        color: var(--white) !important;
+        box-shadow: 0 10px 22px rgba(244, 122, 31, .28);
     }
 
     .cookie-bar {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
+        left: 12px;
+        right: 12px;
+        bottom: calc(84px + env(safe-area-inset-bottom));
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 10px;
+        text-align: left;
+    }
+
+    .cookie-bar p {
+        font-size: .82rem;
+        line-height: 1.35;
+    }
+
+    .cookie-bar .btn {
+        min-height: 38px;
+        padding: 0 14px;
+        font-size: .84rem;
     }
 
     .footer-bottom {
@@ -2155,6 +2276,21 @@ body.modal-open {
     }
 
     .price-ask p {
+        display: none;
+    }
+
+    .price-ask,
+    .cta-band {
+        padding: 26px 20px;
+        text-align: center;
+    }
+
+    .price-ask .btn,
+    .cta-band .btn {
+        width: 100%;
+    }
+
+    .cta-band p {
         display: none;
     }
 }
