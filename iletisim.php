@@ -37,7 +37,7 @@ $ico = [
 require __DIR__ . '/includes/header.php';
 ?>
 
-<section class="page-hero">
+<section class="page-hero contact-hero">
     <div class="container">
         <p class="eyebrow">İletişim</p>
         <h1>Kurumsal kırtasiye ihtiyaçlarınız için bize ulaşın.</h1>
@@ -49,7 +49,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section contact-section">
     <div class="container contact-layout">
         <div>
             <div class="contact-tiles">
