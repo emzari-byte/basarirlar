@@ -1,0 +1,15 @@
+# Yüklenen müşteri dosyaları ve form kayıtları web'den erişilemez.
+# Dosyalar yalnızca e-posta eki olarak iletilir.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+# PHP yürütmesini engelle
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|pht|cgi|pl)$">
+    SetHandler none
+</FilesMatch>
+php_flag engine off
