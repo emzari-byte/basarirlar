@@ -125,7 +125,7 @@ function product_groups(): array
         [
             'slug' => 'kagit-urunleri',
             'title' => 'Kağıt Ürünleri',
-            'image' => url('images/' . rawurlencode('VEGE COPİER BOND A-4 FOTOKOPİ KAĞIDI 80 GR.jpeg')),
+            'image' => url('images/fotokopi-kagidi-vege-copier-80-gr.jpeg'),
             'summary' => 'Fotokopi kağıdı, renkli kağıt, not kağıdı, defter ve baskı ihtiyaçları.',
         ],
         [
@@ -149,7 +149,7 @@ function product_groups(): array
         [
             'slug' => 'bilgisayar-sarf',
             'title' => 'Bilgisayar Sarf Malzemeleri',
-            'image' => url('images/mouse.jpg'),
+            'image' => url('images/bilgisayar-mouse.jpg'),
             'summary' => 'Mouse, klavye, USB bellek, kablo, CD/DVD ve bilgisayar çevre birimi sarf malzemeleri.',
         ],
         [

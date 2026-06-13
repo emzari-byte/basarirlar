@@ -28,7 +28,7 @@ require __DIR__ . '/includes/header.php';
             </ul>
         </div>
         <div class="split__media">
-            <img src="<?= e(url('images/' . rawurlencode('VEGE COPİER BOND A-4 FOTOKOPİ KAĞIDI 80 GR.jpeg'))); ?>" alt="Başarırlar Yayın Dağıtım kurumsal kırtasiye tedariki" loading="lazy">
+            <img src="<?= e(url('images/fotokopi-kagidi-vege-copier-80-gr.jpeg')); ?>" alt="Başarırlar Yayın Dağıtım kurumsal kırtasiye tedariki" loading="lazy">
         </div>
     </div>
 </section>
