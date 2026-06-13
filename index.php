@@ -60,7 +60,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section section--soft">
+<section class="section section--soft mobile-hide">
     <div class="container">
         <div class="section-head">
             <div>
@@ -94,7 +94,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section mobile-hide">
     <div class="container">
         <div class="section-head">
             <div>
@@ -115,7 +115,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section mobile-keep">
     <div class="container">
         <div class="delivery-band">
             <div class="delivery-band__clock">13:00<span>SON SİPARİŞ</span></div>
@@ -154,7 +154,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section mobile-hide">
     <div class="container">
         <div class="section-head">
             <div>
@@ -174,7 +174,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section section--soft">
+<section class="section section--soft mobile-hide">
     <div class="container split">
         <div>
             <p class="eyebrow">Neden Başarırlar?</p>
@@ -192,7 +192,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section section--ink">
+<section class="section section--ink mobile-hide">
     <div class="container">
         <div class="section-head">
             <div>
@@ -225,7 +225,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section section--soft">
+<section class="section section--soft mobile-hide">
     <div class="container">
         <div class="section-head">
             <div>
@@ -244,7 +244,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section mobile-hide">
     <div class="container">
         <div class="section-head">
             <div>
