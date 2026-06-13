@@ -1,5 +1,10 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH="$HOME/public_html"
-    - /usr/bin/rsync -a --exclude='.git' --exclude='.cpanel.yml' --exclude='.gitignore' ./ "$DEPLOYPATH/"
+    - export DEPLOYPATH=/home/tcxbasar/public_html/
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH
+    - /bin/cp -R includes $DEPLOYPATH
+    - /bin/cp -R admin $DEPLOYPATH
+    - /bin/cp -R PHPMailer $DEPLOYPATH
+    - /bin/cp -f index.php hakkimizda.php kurumsal-kirtasiye.php urun-gruplari.php markalar.php hizmetlerimiz.php teklif-al.php blog.php iletisim.php kvkk.php gizlilik-politikasi.php cerez-politikasi.php robots.txt sitemap.xml llms.txt .htaccess $DEPLOYPATH
