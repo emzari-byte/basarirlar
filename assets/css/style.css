@@ -175,7 +175,7 @@ select {
     background: var(--brand-soft);
 }
 
-.nav-menu__quote {
+.nav-menu a.nav-menu__quote {
     display: none;
 }
 
