@@ -30,7 +30,7 @@ $activePage = '';
 require __DIR__ . '/includes/header.php';
 ?>
 
-<section class="page-hero">
+<section class="page-hero quote-hero">
     <div class="container">
         <p class="eyebrow">Teklif al</p>
         <h1>Kurumsal kırtasiye ihtiyaçlarınız için teklif talebi oluşturun.</h1>
@@ -38,7 +38,7 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
-<section class="section">
+<section class="section quote-section">
     <div class="container form-layout">
         <aside class="info-panel">
             <h2>Teklif süreci</h2>

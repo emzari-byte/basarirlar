@@ -9,6 +9,7 @@ $pageJsonLd = [faq_schema()];
 require __DIR__ . '/includes/header.php';
 ?>
 
+<div class="home-page">
 <section class="hero">
     <div class="container hero__content">
         <span class="hero-badge">Toptan &amp; Proje Bazlı Tedarik</span>
@@ -276,4 +277,5 @@ require __DIR__ . '/includes/header.php';
     </div>
 </section>
 
+</div>
 <?php require __DIR__ . '/includes/footer.php'; ?>
