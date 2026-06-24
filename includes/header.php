@@ -37,6 +37,13 @@ $activePage = $activePage ?? 'anasayfa';
     <link rel="icon" type="image/png" href="<?= e(asset('images/favicon.png')); ?>">
     <link rel="preload" as="image" href="<?= e(asset('images/hero-kurumsal-kirtasiye.jpg')); ?>">
     <link rel="stylesheet" href="<?= e(versioned_asset('css/style.css')); ?>">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9PS90ZQL8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-D9PS90ZQL8');
+    </script>
     <script type="application/ld+json">
 <?= json_encode(page_schema(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>
     </script>
