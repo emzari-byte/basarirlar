@@ -12,18 +12,25 @@ require __DIR__ . '/includes/header.php';
 <div class="home-page b2b-home">
     <section class="hero b2b-hero">
         <div class="container hero__content">
-            <span class="hero-badge">Denizli B2B kırtasiye tedariği</span>
-            <h1>Kurumunuzun kırtasiye listesini gönderin, <span class="accent">toptan teklifinizi</span> hazırlayalım.</h1>
-            <p>Şirketler, kamu kurumları ve sanayi işletmeleri için 10.000+ ürün, 100+ marka, faturalı satış ve hafta içi şehir içi servis.</p>
+            <span class="hero-badge">Kurumsal satın alma için hızlı teklif</span>
+            <h1>Kırtasiye listenizi yükleyin, <span class="accent">toptan teklif sürecini</span> bugün başlatalım.</h1>
+            <p>Excel, PDF veya fotoğraf listenizi gönderin; 40+ yıl deneyimle 10.000+ ürün ve 100+ marka içinden faturalı, karşılaştırılabilir teklif hazırlayalım.</p>
             <div class="hero__actions">
-                <a class="btn" href="<?= e(url('teklif-al')); ?>">Teklif Listesi Gönder</a>
-                <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20teklifi%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Yaz</a>
+                <a class="btn" href="<?= e(url('teklif-al')); ?>">Liste Yükleyerek Teklif Al</a>
+                <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20%C3%BCr%C3%BCn%20listemi%20payla%C5%9F%C4%B1p%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönder</a>
             </div>
+            <p class="hero-microcopy">Tek tek ürün seçmeniz gerekmez; mevcut satın alma listeniz yeterli.</p>
             <ul class="hero-trust" aria-label="Kurumsal avantajlar">
                 <li>Toptan ve proje bazlı fiyat</li>
                 <li>Faturalı satış</li>
                 <li>13:00’a kadar aynı gün teslimat</li>
             </ul>
+            <div class="hero__facts" aria-label="Başarırlar metrikleri">
+                <div class="fact"><strong>40+</strong><span>yıl tedarik tecrübesi</span></div>
+                <div class="fact"><strong>10.000+</strong><span>kurumsal ürün çeşidi</span></div>
+                <div class="fact"><strong>100+</strong><span>aktif marka seçeneği</span></div>
+                <div class="fact"><strong>13:00</strong><span>aynı gün teslimat sınırı</span></div>
+            </div>
         </div>
     </section>
 
@@ -31,12 +38,18 @@ require __DIR__ . '/includes/header.php';
         <div class="container quick-quote">
             <div class="quick-quote__copy">
                 <p class="eyebrow">Hızlı teklif</p>
-                <h2>Ürün listeniz hazırsa beklemeyin.</h2>
-                <p>Excel, PDF veya fotoğraf listenizi forma ekleyin; fiyat, muadil ürün ve teslimat planı için dönüş yapalım.</p>
+                <h2>Listenizi gönderin, fiyat karşılaştırmasını kolaylaştırın.</h2>
+                <p>Excel, PDF, fotoğraf veya düz metin liste yeterli. Ürünleri tek tek aramak yerine satın alma listenizi doğrudan paylaşın.</p>
+                <ul class="quick-quote__formats" aria-label="Kabul edilen teklif formatları">
+                    <li>Excel</li>
+                    <li>PDF</li>
+                    <li>Fotoğraf</li>
+                    <li>WhatsApp</li>
+                </ul>
             </div>
             <div class="quick-quote__actions">
-                <a class="btn" href="<?= e(url('teklif-al')); ?>">Dosya Yükleyerek Teklif Al</a>
-                <a class="btn btn--ghost" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20%C3%BCr%C3%BCn%20listemi%20payla%C5%9F%C4%B1p%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp ile Gönder</a>
+                <a class="btn" href="<?= e(url('teklif-al')); ?>">Liste Yükle</a>
+                <a class="btn btn--ghost" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20%C3%BCr%C3%BCn%20listemi%20payla%C5%9F%C4%B1p%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Gönder</a>
             </div>
         </div>
     </section>
@@ -47,6 +60,36 @@ require __DIR__ . '/includes/header.php';
             <div class="metric-card"><strong>10.000+</strong><span>ürün çeşidi</span></div>
             <div class="metric-card"><strong>100+</strong><span>güçlü marka</span></div>
             <div class="metric-card"><strong>13:00</strong><span>aynı gün teslimat sınırı</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Neden biz?</p>
+                    <h2>Satın alma ekibinin ihtiyaç duyduğu netlik, hız ve güven.</h2>
+                </div>
+                <p>Başarırlar, perakende vitrin yerine kurumsal liste, teklif, fatura ve teslimat akışına odaklanır.</p>
+            </div>
+            <div class="conversion-grid">
+                <article class="trust-item">
+                    <b>Listeyle teklif</b>
+                    <p>Ürünleri tek tek seçtirmeden Excel, PDF, fotoğraf veya WhatsApp listeniz üzerinden teklif hazırlanır.</p>
+                </article>
+                <article class="trust-item">
+                    <b>Marka ve muadil netliği</b>
+                    <p>Standart markalar korunur; istenirse bütçeye uygun muadil seçenekler açıkça karşılaştırılır.</p>
+                </article>
+                <article class="trust-item">
+                    <b>13:00 teslimat avantajı</b>
+                    <p>Hafta içi 13:00’a kadar gelen uygun siparişler aynı gün şehir içi servis planına alınır.</p>
+                </article>
+                <article class="trust-item">
+                    <b>Faturalı kurumsal akış</b>
+                    <p>Şirket, kamu kurumu ve sanayi işletmeleri için belge, fatura ve teslimat süreci baştan netleşir.</p>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -94,7 +137,10 @@ require __DIR__ . '/includes/header.php';
                         <div class="card__body">
                             <h3><?= e($group['title']); ?></h3>
                             <p><?= e($group['summary']); ?></p>
-                            <a class="card__link" href="<?= e(url('urun-gruplari/' . $group['slug'])); ?>">Detayları incele</a>
+                            <div class="card__actions">
+                                <a class="card__link" href="<?= e(url('urun-gruplari/' . $group['slug'])); ?>">Detayları incele</a>
+                                <a class="card__link card__link--muted" href="<?= e(url('teklif-al?urun_grubu=' . rawurlencode($group['title']))); ?>" data-track="category_quote_click" data-category="<?= e($group['slug']); ?>">Teklif al</a>
+                            </div>
                         </div>
                     </article>
                 <?php endforeach; ?>
@@ -109,7 +155,7 @@ require __DIR__ . '/includes/header.php';
                 <h2>Hafta içi şehir içi servis. 13:00’a kadar aynı gün teslimat.</h2>
                 <p>Kağıt, toner, dosya, ambalaj veya acil ofis sarfı: uygun siparişler aynı gün teslimat planına alınır.</p>
             </div>
-            <a class="btn" href="<?= e(url('hizmetlerimiz')); ?>">Servis Modeli</a>
+            <a class="btn" href="<?= e(url('teklif-al')); ?>">13:00 Öncesi Teklif Al</a>
         </div>
     </section>
 
@@ -139,7 +185,7 @@ require __DIR__ . '/includes/header.php';
                 </div>
             </div>
             <div class="process-grid">
-                <div class="process-step"><span>1</span><h3>Listeyi gönderin</h3><p>Ürün, adet, marka ve teslimat beklentinizi form veya WhatsApp ile paylaşın.</p></div>
+                <div class="process-step"><span>1</span><h3>Listeyi yükleyin</h3><p>Ürün, adet, marka ve teslimat beklentinizi form veya WhatsApp ile paylaşın.</p></div>
                 <div class="process-step"><span>2</span><h3>Ürünler netleşsin</h3><p>Gerekirse muadil seçenek, stok ve fiyat avantajı birlikte değerlendirilir.</p></div>
                 <div class="process-step"><span>3</span><h3>Teklif alın</h3><p>Faturalı satış ve teslimat planı ile kurumsal teklifiniz hazırlanır.</p></div>
             </div>
@@ -172,7 +218,7 @@ require __DIR__ . '/includes/header.php';
                     <h2>Bize fiyat sormadan kırtasiye alımına karar vermeyin.</h2>
                     <p>Kurumsal listenizi gönderin; toptan ve proje bazlı fiyat avantajını birlikte görelim.</p>
                 </div>
-                <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>">Teklif Formuna Git</a>
+                <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>">Liste Yükleyerek Teklif Al</a>
             </div>
         </div>
     </section>

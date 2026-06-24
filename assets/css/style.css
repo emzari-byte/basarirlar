@@ -360,6 +360,13 @@ select {
     gap: 12px;
 }
 
+.hero-microcopy {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, .78);
+    font-size: .92rem;
+    font-weight: 650;
+}
+
 .hero-trust {
     list-style: none;
     margin: 18px 0 0;
@@ -2462,6 +2469,27 @@ body.modal-open {
     color: var(--muted);
 }
 
+.quick-quote__formats {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 0;
+    padding: 0;
+}
+
+.quick-quote__formats li {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+    font-size: .82rem;
+    font-weight: 780;
+}
+
 .quick-quote__actions {
     display: flex;
     flex-wrap: wrap;
@@ -2472,6 +2500,16 @@ body.modal-open {
 .metric-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.b2b-home .hero__facts,
+.conversion-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.conversion-grid {
+    display: grid;
     gap: 16px;
 }
 
@@ -2683,6 +2721,26 @@ body.modal-open {
     font-size: .82rem;
 }
 
+.quote-help {
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: var(--radius-sm);
+    background: var(--brand-soft);
+    color: var(--ink);
+}
+
+.quote-help b,
+.quote-help span {
+    display: block;
+}
+
+.quote-help span {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.4;
+}
+
 .cookie-actions {
     display: flex;
     gap: 10px;
@@ -2695,6 +2753,8 @@ body.modal-open {
 
 @media (max-width: 1080px) {
     .metric-grid,
+    .b2b-home .hero__facts,
+    .conversion-grid,
     .brand-grid--compact,
     .brand-grid--featured {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2728,7 +2788,11 @@ body.modal-open {
     }
 
     .b2b-hero .hero__content {
-        padding-bottom: 96px;
+        padding-bottom: 70px;
+    }
+
+    .b2b-home .hero__facts {
+        display: none;
     }
 
     .quick-quote {
@@ -2744,6 +2808,10 @@ body.modal-open {
 
     .quick-quote p:not(.eyebrow) {
         display: none;
+    }
+
+    .quick-quote__formats {
+        margin-top: 12px;
     }
 
     .quick-quote__actions,
@@ -2766,6 +2834,7 @@ body.modal-open {
     }
 
     .list-card-grid,
+    .conversion-grid,
     .brand-grid--compact,
     .brand-grid--featured {
         grid-template-columns: 1fr;

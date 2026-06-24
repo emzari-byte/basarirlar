@@ -38,11 +38,11 @@ require __DIR__ . '/includes/header.php';
 <section class="page-hero quote-hero">
     <div class="container">
         <p class="eyebrow">Teklif al</p>
-        <h1>Kurumsal kırtasiye ihtiyaçlarınız için teklif talebi oluşturun.</h1>
-        <p>Firma bilgilerinizi iletin, ilgilendiğiniz ürün grubunu seçin; ürün listenizi yazın veya dosya olarak yükleyin. Alternatif olarak WhatsApp üzerinden de liste gönderebilirsiniz.</p>
+        <h1>Listenizi yükleyin, kurumsal teklif sürecini başlatalım.</h1>
+        <p>Excel, PDF, fotoğraf veya düz metin listenizi paylaşın. Ürün grubu, adet, marka tercihi ve teslimat beklentisine göre faturalı teklif hazırlayalım.</p>
         <div class="hero__actions">
-            <a class="btn" href="#teklif-formu">Formu Doldur</a>
-            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20teklifi%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp Alternatifi</a>
+            <a class="btn" href="#teklif-formu">Ürün Listesi Yükle</a>
+            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20%C3%BCr%C3%BCn%20listemi%20payla%C5%9F%C4%B1p%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönder</a>
         </div>
     </div>
 </section>
@@ -53,17 +53,22 @@ require __DIR__ . '/includes/header.php';
             <h2>Teklif süreci</h2>
             <p>Talebiniz alındıktan sonra ürün grupları, miktarlar, marka tercihleri ve teslimat beklentisi değerlendirilir.</p>
             <ul class="check-list">
-                <li>Kurumsal ürün listesi kontrol edilir.</li>
-                <li>Uygun ürün ve muadil seçenekleri belirlenir.</li>
-                <li>Faturalı satış ve teslimat planı netleştirilir.</li>
+                <li>Excel, PDF, fotoğraf veya metin listeniz kontrol edilir.</li>
+                <li>Marka standardı ve uygun muadil seçenekleri netleştirilir.</li>
+                <li>13:00 öncesi uygun siparişlerde aynı gün teslimat planı değerlendirilir.</li>
             </ul>
+            <div class="quote-help">
+                <b>Liste hazır değilse sorun değil.</b>
+                <span>Ürün grubunu seçip kısa açıklama yazmanız da ön teklif için yeterlidir.</span>
+            </div>
         </aside>
         <form class="form-panel" id="teklif-formu" method="post" action="<?= e(url('teklif-al')); ?>" enctype="multipart/form-data" data-validate data-track-submit="quote_form_submit" novalidate>
             <input type="hidden" name="form_key" value="teklif">
             <div class="honeypot">
                 <label>Web site <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
             </div>
-            <h2>Teklif formu</h2>
+            <h2>Kurumsal teklif formu</h2>
+            <p class="form-panel__lead">En hızlı dönüş için ürün listenizi dosya olarak ekleyin; liste yoksa açıklama alanına ürün ve adetleri yazın.</p>
             <?php if ($form['status'] === 'success'): ?>
                 <div class="alert alert--success">Talebiniz alındı. En kısa sürede sizinle iletişime geçeceğiz.</div>
             <?php elseif ($form['status'] === 'error'): ?>
@@ -103,14 +108,14 @@ require __DIR__ . '/includes/header.php';
                     </select>
                 </div>
                 <div class="field field--full">
-                    <label for="aciklama">Açıklama <span class="field-hint">(talep ettiğiniz ürünler, adet ve diğer detaylar)</span></label>
-                    <textarea id="aciklama" name="aciklama" placeholder="Talep ettiğiniz ürünleri, tahmini adetleri ve teslimat beklentinizi yazabilirsiniz."><?= old_value($form, 'aciklama'); ?></textarea>
+                    <label for="aciklama">Ürün ve teslimat notu <span class="field-hint">(ürün, adet, marka tercihi, teslimat beklentisi)</span></label>
+                    <textarea id="aciklama" name="aciklama" placeholder="Örn. A4 fotokopi kağıdı 20 koli, mavi klasör 100 adet, toner modeli..., 13:00 sonrası teslimat notu..."><?= old_value($form, 'aciklama'); ?></textarea>
                 </div>
                 <div class="field field--full">
-                    <label for="ekler">Ürün listesi / dosya ekle <span class="field-hint">(opsiyonel · Excel, PDF, görsel · en fazla 5 dosya, 8 MB)</span></label>
+                    <label for="ekler">Ürün listenizi yükleyin <span class="field-hint">(Excel, PDF, fotoğraf · en fazla 5 dosya, 8 MB)</span></label>
                     <input id="ekler" name="ekler[]" type="file" multiple data-file-limit="5" data-file-max-size="8388608" data-track-change="quote_file_upload"
                            accept=".jpg,.jpeg,.png,.gif,.webp,.heic,.heif,.pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,image/*,application/pdf">
-                    <small class="field-help">Toplam en fazla 5 dosya; dosya başına 8 MB. Excel, PDF, görsel, Word, CSV veya TXT yükleyebilirsiniz.</small>
+                    <small class="field-help">Satın alma listenizi aynen ekleyebilirsiniz; ürünleri tek tek seçmeniz gerekmez.</small>
                 </div>
                 <div class="field field--full">
                     <label class="check-label">
@@ -119,7 +124,7 @@ require __DIR__ . '/includes/header.php';
                     </label>
                 </div>
             </div>
-            <button class="btn" type="submit">Teklif Talebi Gönder</button>
+            <button class="btn" type="submit">Kurumsal Teklifimi İste</button>
         </form>
     </div>
 </section>

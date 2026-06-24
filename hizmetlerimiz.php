@@ -9,8 +9,12 @@ require __DIR__ . '/includes/header.php';
 <section class="page-hero">
     <div class="container">
         <p class="eyebrow">Hizmetlerimiz</p>
-        <h1>Kurumsal kırtasiye tedariğini satın alma süreçlerinize uyumlu hale getiriyoruz.</h1>
-        <p>Ürün seçimi, tekliflendirme, teslimat ve faturalandırma adımlarını kurum ihtiyaçlarına göre düzenleyen bir hizmet modeli sunuyoruz.</p>
+        <h1>Kurumsal kırtasiye tedariğini liste, teklif ve teslimat akışına dönüştürüyoruz.</h1>
+        <p>Satın alma listenizi paylaşın; ürün seçimi, muadil değerlendirme, faturalı satış ve şehir içi teslimat sürecini tek akışta netleştirelim.</p>
+        <div class="hero__actions">
+            <a class="btn" href="<?= e(url('teklif-al')); ?>">Liste Yükleyerek Teklif Al</a>
+            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20listemi%20payla%C5%9Fmak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönder</a>
+        </div>
     </div>
 </section>
 
@@ -19,9 +23,9 @@ require __DIR__ . '/includes/header.php';
         <div class="section-head">
             <div>
                 <p class="eyebrow">Özel hizmetler</p>
-                <h2>Kurumsal müşterilerimize özel servis ayrıcalıkları</h2>
+                <h2>Satın alma ekibine hız kazandıran servis ayrıcalıkları</h2>
             </div>
-            <p>Denizli'nin en büyük kurumsal kırtasiyesi olarak ürünü sadece satmıyor, planlı servisimizle kapınıza kadar getiriyoruz.</p>
+            <p>Denizli'nin en büyük kurumsal kırtasiyesi olarak ürünü sadece satmıyor; acil ihtiyaç, tekrar eden liste ve faturalı teslimat sürecini birlikte yönetiyoruz.</p>
         </div>
         <div class="special-grid">
             <?php foreach (special_services() as $svc): ?>
@@ -40,7 +44,7 @@ require __DIR__ . '/includes/header.php';
         <div class="section-head">
             <div>
                 <p class="eyebrow">Tedarik hizmetleri</p>
-                <h2>Satın alma sürecinizi uçtan uca yöneten çözümler</h2>
+                <h2>Her hizmet doğrudan maliyet, zaman veya teslimat faydasına bağlı.</h2>
             </div>
         </div>
         <div class="service-grid">
@@ -59,10 +63,10 @@ require __DIR__ . '/includes/header.php';
     <div class="container">
         <div class="cta-band">
             <div>
-                <h2>Toplu sipariş ve düzenli teslimat için görüşelim.</h2>
-                <p>İhtiyaç kalemlerinizi paylaşın; kuruma özel tedarik ve tekliflendirme sürecini birlikte planlayalım.</p>
+                <h2>Listenizi gönderin, teslimat ve fiyat planını birlikte netleştirelim.</h2>
+                <p>Kağıt, toner, dosya, ambalaj ve ofis sarf kalemlerinizi tek dosyada paylaşabilirsiniz.</p>
             </div>
-            <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>">Teklif Al</a>
+            <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>">Kurumsal Teklif İste</a>
         </div>
     </div>
 </section>
