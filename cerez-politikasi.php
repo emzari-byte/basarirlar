@@ -16,7 +16,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="section">
     <div class="container content-flow">
-        <p><strong>Son güncelleme:</strong> 13.06.2026</p>
+        <p><strong>Son güncelleme:</strong> 24.06.2026</p>
 
         <h2>1. Çerez Nedir?</h2>
         <p>Çerezler, bir web sitesini ziyaret ettiğinizde tarayıcınıza kaydedilen küçük metin dosyalarıdır. Sitenin düzgün çalışmasını ve deneyiminizin iyileştirilmesini sağlar.</p>
@@ -25,8 +25,9 @@ require __DIR__ . '/includes/header.php';
         <ul>
             <li><strong>Zorunlu çerezler:</strong> Oturum yönetimi ve sitenin temel işlevleri (örneğin form güvenliği) için kullanılır. Bu çerezler olmadan site düzgün çalışmaz ve kapatılamaz.</li>
             <li><strong>Tercih çerezleri:</strong> Çerez bildirimi onayınız gibi seçimlerinizi hatırlamak için tarayıcınızın yerel depolamasını kullanırız.</li>
+            <li><strong>Analitik çerezleri:</strong> Google Analytics, yalnızca açık onayınızdan sonra sayfa görüntüleme ve etkileşim ölçümü için yüklenir. Onay vermezseniz analitik etiketi çalıştırılmaz.</li>
         </ul>
-        <p>Web sitemiz şu an için pazarlama veya üçüncü taraf takip (reklam) çerezleri kullanmamaktadır. İleride analiz/istatistik çerezleri eklenmesi hâlinde bu politika güncellenecektir.</p>
+        <p>Web sitemizde pazarlama veya reklam pikseli kullanılmamaktadır. İleride Clarity, reklam pikselleri veya benzeri üçüncü taraf araçlar eklenirse bu politika ve onay metni güncellenecektir.</p>
 
         <h2>3. Çerezleri Nasıl Yönetebilirsiniz?</h2>
         <p>Tarayıcınızın ayarlarından çerezleri silebilir veya engelleyebilirsiniz. Ancak zorunlu çerezlerin engellenmesi durumunda sitenin bazı bölümleri çalışmayabilir. Çoğu tarayıcıda çerez yönetimi "Ayarlar &gt; Gizlilik" bölümünden yapılır.</p>

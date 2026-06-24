@@ -21,7 +21,12 @@ $form = handle_form_submission('teklif', [
         'kvkk' => 'KVKK Onayı',
     ],
     'subject' => SITE_NAME . ' - Teklif Talebi',
+    'redirect' => url('tesekkurler'),
 ]);
+
+if ($form['status'] === 'idle' && !empty($_GET['urun_grubu'])) {
+    $form['old']['urun_grubu'] = clean_input($_GET['urun_grubu']);
+}
 
 $pageTitle = 'Teklif Al | Kurumsal Kırtasiye Teklif Formu';
 $pageDescription = 'Başarırlar Kurumsal Kırtasiye teklif formu ile firma bilgilerinizi iletip ilgilendiğiniz ürün grubunu seçerek hızlıca kurumsal teklif alın.';
@@ -34,7 +39,11 @@ require __DIR__ . '/includes/header.php';
     <div class="container">
         <p class="eyebrow">Teklif al</p>
         <h1>Kurumsal kırtasiye ihtiyaçlarınız için teklif talebi oluşturun.</h1>
-        <p>Firma bilgilerinizi iletin, ilgilendiğiniz ürün grubunu seçin; detayları açıklama alanına yazıp dosya ekleyebilirsiniz. Tedarik ve teslimat planı için sizinle iletişime geçelim.</p>
+        <p>Firma bilgilerinizi iletin, ilgilendiğiniz ürün grubunu seçin; ürün listenizi yazın veya dosya olarak yükleyin. Alternatif olarak WhatsApp üzerinden de liste gönderebilirsiniz.</p>
+        <div class="hero__actions">
+            <a class="btn" href="#teklif-formu">Formu Doldur</a>
+            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20teklifi%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp Alternatifi</a>
+        </div>
     </div>
 </section>
 
@@ -49,7 +58,7 @@ require __DIR__ . '/includes/header.php';
                 <li>Faturalı satış ve teslimat planı netleştirilir.</li>
             </ul>
         </aside>
-        <form class="form-panel" method="post" action="<?= e(url('teklif-al')); ?>" enctype="multipart/form-data" data-validate novalidate>
+        <form class="form-panel" id="teklif-formu" method="post" action="<?= e(url('teklif-al')); ?>" enctype="multipart/form-data" data-validate data-track-submit="quote_form_submit" novalidate>
             <input type="hidden" name="form_key" value="teklif">
             <div class="honeypot">
                 <label>Web site <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
@@ -99,8 +108,9 @@ require __DIR__ . '/includes/header.php';
                 </div>
                 <div class="field field--full">
                     <label for="ekler">Ürün listesi / dosya ekle <span class="field-hint">(opsiyonel · Excel, PDF, görsel · en fazla 5 dosya, 8 MB)</span></label>
-                    <input id="ekler" name="ekler[]" type="file" multiple
-                           accept=".jpg,.jpeg,.png,.gif,.webp,.heic,.pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,image/*,application/pdf">
+                    <input id="ekler" name="ekler[]" type="file" multiple data-file-limit="5" data-file-max-size="8388608" data-track-change="quote_file_upload"
+                           accept=".jpg,.jpeg,.png,.gif,.webp,.heic,.heif,.pdf,.doc,.docx,.xls,.xlsx,.csv,.txt,image/*,application/pdf">
+                    <small class="field-help">Toplam en fazla 5 dosya; dosya başına 8 MB. Excel, PDF, görsel, Word, CSV veya TXT yükleyebilirsiniz.</small>
                 </div>
                 <div class="field field--full">
                     <label class="check-label">

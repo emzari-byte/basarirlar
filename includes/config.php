@@ -5,7 +5,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Taban yolu otomatik algılanır: yerelde "/basarirlar", canlıda alan adı kökünde "".
 $scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? ''));
 define('BASE_PATH', ($scriptDir === '/' || $scriptDir === '.' || $scriptDir === '') ? '' : rtrim($scriptDir, '/'));
 define('SITE_URL', 'https://basarirlarkurumsal.com');
@@ -24,18 +23,18 @@ define('CONTACT_ADDRESS', 'Dokuzkavaklar Mah. Ankara Bulvarı No:86 Pamukkale / 
 define('GOOGLE_PLACE_ID', 'ChIJGStXAAA_xxQRQvVMUoEaEzQ');
 define('WORKING_HOURS_WEEK', 'Pazartesi - Cumartesi · 08:30 - 19:00');
 define('WORKING_HOURS_SAME_DAY', "Saat 13:00'a kadar verilen siparişler aynı gün teslim");
-// Coğrafi konum (Google haritasındaki noktadan; yapay zeka ve yerel arama için doğrulayın)
 define('GEO_LAT', '37.85899');
 define('GEO_LNG', '29.07840');
 define('PARENT_COMPANY', 'Başarırlar Yayın Dağıtım');
-define('COMPANY_FOUNDED', '2025'); // Başarırlar Kurumsal Kırtasiye A.Ş. kuruluş yılı
+define('COMPANY_FOUNDED', '2025');
+define('SUPPLY_EXPERIENCE', '40+ yıl');
+define('PRODUCT_COUNT', '10.000+');
+define('BRAND_COUNT', '100+');
+define('GA_MEASUREMENT_ID', 'G-D9PS90ZQL8');
 define('FORM_MAIL_ENABLED', true);
-define('FORM_RECIPIENT', 'cihan@basarirlar.com.tr'); // Form gönderimlerinin ulaşacağı adres
+define('FORM_RECIPIENT', 'cihan@basarirlar.com.tr');
 define('MAIL_FROM_NAME', SITE_NAME);
 
-// ---- SMTP gizli bilgileri ----
-// Şifre vb. bilgiler includes/secrets.php içinde tutulur (GitHub'a gönderilmez, .gitignore'da).
-// Sunucuda secrets.php mevcut olmalı; yoksa aşağıdaki güvenli varsayılanlar devreye girer.
 $secretsFile = __DIR__ . '/secrets.php';
 if (is_file($secretsFile)) {
     require $secretsFile;
@@ -123,88 +122,212 @@ function product_groups(): array
             'slug' => 'ofis-kirtasiye',
             'title' => 'Ofis Kırtasiye',
             'image' => asset('images/products/ofis-kirtasiye.jpg'),
-            'summary' => 'Kalem, zımba, bant, makas, masaüstü gereçleri ve günlük ofis sarf ürünleri.',
+            'summary' => 'Günlük ofis sarfını tek listeden, kurumsal fiyatla tamamlayın.',
+            'description' => 'Kalemden zımbaya, banttan masaüstü düzenleyicilere kadar ofislerin sürekli tükettiği ürünlerde marka, adet ve teslimat planı birlikte yönetilir.',
+            'samples' => ['Tükenmez ve imza kalemleri', 'Zımba, delgeç ve ataş', 'Bant, makas ve yapıştırıcı', 'Not kağıdı ve post-it', 'Masaüstü düzenleyiciler'],
+            'brands' => ['Pensan', 'Faber-Castell', 'Mas', 'Pritt', 'Noki'],
+            'advantages' => ['Departman bazlı ihtiyaç listesi hazırlanır.', 'Muadil ürün seçenekleriyle bütçe kontrolü sağlanır.', 'Düzenli tüketilen kalemlerde stok sürekliliği korunur.'],
+            'faq' => [
+                ['q' => 'Ofis ürünlerinde karışık marka listesi gönderebilir miyiz?', 'a' => 'Evet. Mevcut listenizi marka, adet veya muadil notuyla paylaşabilirsiniz; teklif bu bilgiye göre hazırlanır.'],
+                ['q' => 'Düzenli aylık ofis sarf tedariği yapılır mı?', 'a' => 'Evet. Sık tüketilen ürünler için düzenli sipariş ve şehir içi teslimat planı oluşturulur.'],
+            ],
+            'meta_description' => 'Ofis kırtasiye ürünleri için toptan ve kurumsal teklif alın. Kalem, zımba, bant, post-it, masaüstü gereçleri ve düzenli teslimat.',
         ],
         [
             'slug' => 'okul-kirtasiye',
             'title' => 'Okul Kırtasiye',
             'image' => asset('images/products/okul-kirtasiye.jpg'),
-            'summary' => 'Defter, kalem, boya, resim ve eğitim dönemine yönelik toplu kırtasiye ürün grupları.',
+            'summary' => 'Eğitim kurumları ve dönemsel toplu alımlar için planlı ürün tedariği.',
+            'description' => 'Defter, kalem, boya ve yardımcı eğitim ürünlerinde dönem başı, proje veya kurum içi liste talepleri toplu fiyat avantajıyla değerlendirilir.',
+            'samples' => ['Defter ve ajandalar', 'Boya ve resim ürünleri', 'Kalem setleri', 'Dosya ve kaplık ürünleri', 'Etkinlik sarfları'],
+            'brands' => ['Faber-Castell', 'Adel', 'Gıpta', 'Fatih', 'Nova Color'],
+            'advantages' => ['Dönemsel toplu listeler hızlı fiyatlandırılır.', 'Yaş grubu ve kullanım alanına göre ürün önerilir.', 'Kurum standardına uygun marka seçimi korunur.'],
+            'faq' => [
+                ['q' => 'Okul kırtasiye alımı bireysel öğrencilere yönelik mi?', 'a' => 'Hayır. Bu kategori kurumsal ve toplu satın alma talepleri için değerlendirilir.'],
+                ['q' => 'Toplu listeyi Excel olarak gönderebilir miyiz?', 'a' => 'Evet. Teklif formundan Excel, PDF veya görsel liste yükleyebilirsiniz.'],
+            ],
+            'meta_description' => 'Okul kırtasiye ürünlerinde toplu ve kurumsal teklif. Defter, kalem, boya, etkinlik ve eğitim sarf ürünleri için planlı tedarik.',
         ],
         [
             'slug' => 'kagit-urunleri',
             'title' => 'Kağıt Ürünleri',
             'image' => url('images/fotokopi-kagidi-vege-copier-80-gr.jpeg'),
-            'summary' => 'Fotokopi kağıdı, renkli kağıt, not kağıdı, defter ve baskı ihtiyaçları.',
+            'summary' => 'Fotokopi, baskı ve evrak akışı için kesintisiz kağıt tedariği.',
+            'description' => 'A4 fotokopi kağıdı başta olmak üzere renkli kağıt, not kağıdı, defter ve baskı sarflarında adet ve teslimat sıklığına göre kurumsal teklif hazırlanır.',
+            'samples' => ['A4 fotokopi kağıdı', 'Renkli kağıt', 'Not ve blok kağıtlar', 'Defter ve ajanda', 'Baskı sarf kağıtları'],
+            'brands' => ['Allcopy', 'Vege', 'Mopak', 'Gıpta', 'Keskin Color'],
+            'advantages' => ['Yüksek tüketimli ürünlerde fiyat ve stok takibi yapılır.', 'Acil kağıt ihtiyaçları şehir içi servisle çözülür.', 'Marka ve gramaj standardı teklifte netleştirilir.'],
+            'faq' => [
+                ['q' => 'A4 kağıt için koli bazlı fiyat alabilir miyiz?', 'a' => 'Evet. Koli, paket veya düzenli tüketim miktarına göre teklif hazırlanır.'],
+                ['q' => 'Farklı gramaj ve marka seçenekleri sunuluyor mu?', 'a' => 'Evet. Kullanım alanına göre marka, gramaj ve muadil alternatifleri paylaşılır.'],
+            ],
+            'meta_description' => 'Kağıt ürünleri için kurumsal teklif alın. A4 fotokopi kağıdı, renkli kağıt, not kağıdı ve baskı sarfları.',
         ],
         [
             'slug' => 'toner-kartus',
             'title' => 'Toner & Kartuş',
             'image' => asset('images/products/toner-kartus.jpg'),
-            'summary' => 'Yazıcı sarf malzemeleri, kartuş, toner ve kurum içi baskı sürekliliği çözümleri.',
+            'summary' => 'Baskı sürekliliği için orijinal ve muadil sarf seçenekleri.',
+            'description' => 'Yazıcı modelinize göre toner, kartuş ve baskı sarf ürünleri belirlenir; orijinal veya muadil seçenekler maliyet ve performans dengesiyle tekliflendirilir.',
+            'samples' => ['Lazer toner', 'Mürekkep kartuş', 'Muadil toner', 'Drum ve baskı sarfı', 'Yazıcı bakım sarfları'],
+            'brands' => ['HP', 'Canon', 'Epson', 'Brother', 'Samsung'],
+            'advantages' => ['Yazıcı modeli üzerinden doğru ürün eşleşmesi yapılır.', 'Muadil ürünlerde kalite ve uyumluluk değerlendirilir.', 'Baskı kesintisini azaltan stok planı oluşturulur.'],
+            'faq' => [
+                ['q' => 'Yazıcı modelini göndersem doğru toneri bulur musunuz?', 'a' => 'Evet. Marka ve model bilgisini iletmeniz yeterlidir.'],
+                ['q' => 'Muadil toner için teklif alabilir miyiz?', 'a' => 'Evet. Orijinal ve uygun muadil alternatifleri birlikte değerlendirilebilir.'],
+            ],
+            'meta_description' => 'Toner ve kartuş tedariki için teklif alın. Orijinal ve muadil toner, kartuş, drum ve yazıcı sarfları.',
         ],
         [
-            'slug' => 'dosyalama',
+            'slug' => 'dosyalama-urunleri',
             'title' => 'Dosyalama Ürünleri',
             'image' => asset('images/products/dosyalama.jpg'),
-            'summary' => 'Klasör, telli dosya, poşet dosya, ayraç ve düzenli arşiv ekipmanları.',
+            'summary' => 'Evrak düzeni, klasörleme ve ofis arşivi için standart ürünler.',
+            'description' => 'Klasör, telli dosya, poşet dosya, ayraç ve evrak düzenleyicilerinde departman bazlı kullanım için toplu tedarik planlanır.',
+            'samples' => ['Klasör ve telli dosya', 'Poşet dosya', 'Ayraç ve separatör', 'Evrak rafı', 'Sunum dosyaları'],
+            'brands' => ['Noki', 'Mas', 'Bigpoint', 'Gıpta', 'Kraf'],
+            'advantages' => ['Kurumsal evrak standardına uygun ürün seçilir.', 'Renk, ebat ve adet planı netleştirilir.', 'Toplu alımda birim maliyet avantajı sağlanır.'],
+            'faq' => [
+                ['q' => 'Klasör renk ve ebat seçenekleri belirtilebilir mi?', 'a' => 'Evet. Renk, sırt genişliği ve adet bilgisi teklif aşamasında dikkate alınır.'],
+                ['q' => 'Arşiv ve dosyalama ürünleri birlikte tekliflenir mi?', 'a' => 'Evet. Birleşik liste gönderebilirsiniz.'],
+            ],
+            'meta_description' => 'Dosyalama ürünlerinde kurumsal teklif. Klasör, poşet dosya, telli dosya, ayraç ve evrak düzenleyiciler.',
         ],
         [
-            'slug' => 'arsivleme',
+            'slug' => 'arsivleme-urunleri',
             'title' => 'Arşivleme Ürünleri',
             'image' => asset('images/products/arsivleme.jpg'),
-            'summary' => 'Kutu, klasör, etiket ve kurumsal belge yönetimine uygun arşiv çözümleri.',
+            'summary' => 'Belge saklama ve arşiv düzeni için dayanıklı çözümler.',
+            'description' => 'Arşiv kutusu, klasör, etiket ve saklama ekipmanlarında kurumun belge yoğunluğu ve kullanım alanına göre teklif hazırlanır.',
+            'samples' => ['Arşiv kutuları', 'Arşiv klasörleri', 'Etiket ve ayraçlar', 'Kutu dosyalar', 'Belge saklama ürünleri'],
+            'brands' => ['Noki', 'Kraf', 'Mas', 'Tanex', 'Gıpta'],
+            'advantages' => ['Belge yoğunluğuna göre ürün dayanıklılığı seçilir.', 'Arşiv etiketleme düzeni desteklenir.', 'Kurum içi belge akışına uygun paket oluşturulur.'],
+            'faq' => [
+                ['q' => 'Arşiv kutusu için adetli teklif alabilir miyiz?', 'a' => 'Evet. İhtiyaç adetini ve tercih edilen ölçüyü iletmeniz yeterlidir.'],
+                ['q' => 'Etiket ve klasör birlikte tedarik edilir mi?', 'a' => 'Evet. Arşiv seti olarak teklif hazırlanabilir.'],
+            ],
+            'meta_description' => 'Arşivleme ürünlerinde kurumsal teklif. Arşiv kutusu, klasör, etiket ve belge saklama ürünleri.',
         ],
         [
             'slug' => 'bilgisayar-sarf',
             'title' => 'Bilgisayar Sarf Malzemeleri',
             'image' => url('images/bilgisayar-mouse.jpg'),
-            'summary' => 'Mouse, klavye, USB bellek, kablo, CD/DVD ve bilgisayar çevre birimi sarf malzemeleri.',
+            'summary' => 'BT ve ofis ekipleri için günlük bilgisayar çevre birimi sarfları.',
+            'description' => 'Mouse, klavye, kablo, USB bellek ve bağlantı ürünlerinde kurum içi kullanım yoğunluğuna göre marka ve adet alternatifleri sunulur.',
+            'samples' => ['Mouse ve klavye', 'USB bellek', 'Kablo ve adaptör', 'CD/DVD sarfları', 'Temel çevre birimleri'],
+            'brands' => ['Logitech', 'HP', 'Microsoft', 'Sandisk', 'Kingston'],
+            'advantages' => ['BT ekipleri için standart ürün listesi oluşturulur.', 'Uyumluluk ve kullanım sıklığı dikkate alınır.', 'Acil değişim ihtiyaçları hızlı karşılanır.'],
+            'faq' => [
+                ['q' => 'Bilgisayar sarf ürünlerinde marka tercihi yapabilir miyiz?', 'a' => 'Evet. Kullanılan marka standardınızı teklif formunda belirtebilirsiniz.'],
+                ['q' => 'USB bellek ve kablo gibi ürünlerde toplu fiyat var mı?', 'a' => 'Evet. Adet ve marka tercihine göre toplu fiyat hazırlanır.'],
+            ],
+            'meta_description' => 'Bilgisayar sarf malzemeleri için kurumsal teklif. Mouse, klavye, USB bellek, kablo ve çevre birimi sarfları.',
         ],
         [
             'slug' => 'ambalaj-sarf',
             'title' => 'Ambalaj ve Sarf',
             'image' => asset('images/products/ambalaj-sarf.jpg'),
-            'summary' => 'Koli bandı, etiket, paketleme ve günlük operasyon sarf malzemeleri.',
+            'summary' => 'Paketleme, sevkiyat ve depo operasyonları için sarf ürünleri.',
+            'description' => 'Koli bandı, etiket, paketleme bandı ve operasyon sarflarında depo, sevkiyat ve idari birimlerin düzenli tüketimi planlanır.',
+            'samples' => ['Koli bandı', 'Paketleme bandı', 'Etiket ürünleri', 'Streç ve paket sarfları', 'Depo kullanım ürünleri'],
+            'brands' => ['Bafix', 'Tanex', 'Mas', 'Bigpoint', 'Kraf'],
+            'advantages' => ['Depo ve sevkiyat ekiplerine uygun ürün seçilir.', 'Yüksek tüketimde düzenli tedarik planlanır.', 'Etiket ve bant ürünleri birlikte tekliflenir.'],
+            'faq' => [
+                ['q' => 'Koli bandı ve etiket ürünleri aynı listede olabilir mi?', 'a' => 'Evet. Ambalaj ve sarf ürünlerini tek teklif listesinde toplayabilirsiniz.'],
+                ['q' => 'Sanayi işletmelerine teslimat yapılıyor mu?', 'a' => 'Evet. Organize ve çevre sanayi sitelerine planlı servis sağlanır.'],
+            ],
+            'meta_description' => 'Ambalaj ve sarf ürünlerinde kurumsal teklif. Koli bandı, etiket, paketleme ve depo sarfları.',
         ],
         [
-            'slug' => 'promosyon',
+            'slug' => 'promosyon-urunleri',
             'title' => 'Promosyon Ürünleri',
             'image' => asset('images/products/promosyon.jpg'),
-            'summary' => 'Kurum içi kullanım, etkinlik ve marka görünürlüğü için seçili promosyon ürünleri.',
+            'summary' => 'Kurum içi kullanım ve etkinlikler için seçili promosyon ürünleri.',
+            'description' => 'Toplantı, etkinlik, kurum içi dağıtım veya marka görünürlüğü için ihtiyaç duyulan promosyon ürünleri proje bazlı değerlendirilir.',
+            'samples' => ['Promosyon kalem', 'Defter ve bloknot', 'Kurum içi dağıtım ürünleri', 'Etkinlik sarfları', 'Markalı ofis ürünleri'],
+            'brands' => ['Faber-Castell', 'Pensan', 'Gıpta', 'Keskin Color', 'Bigpoint'],
+            'advantages' => ['Proje bazlı adet ve teslim tarihi planlanır.', 'Kurum kullanım amacına uygun ürün seçilir.', 'Bütçe ve görünürlük beklentisi dengelenir.'],
+            'faq' => [
+                ['q' => 'Promosyon ürünleri baskılı mı sunuluyor?', 'a' => 'Baskı gerektiren talepler proje detayına göre ayrıca değerlendirilir.'],
+                ['q' => 'Etkinlik için hızlı teklif alabilir miyiz?', 'a' => 'Evet. Ürün, adet ve tarih bilgisiyle hızlı ön teklif hazırlanır.'],
+            ],
+            'meta_description' => 'Promosyon ürünleri için kurumsal teklif. Promosyon kalem, defter, etkinlik ve kurum içi dağıtım ürünleri.',
         ],
         [
             'slug' => 'masaustu-gerecleri',
             'title' => 'Masaüstü Gereçleri',
             'image' => asset('images/products/masaustu-gerecleri.jpg'),
-            'summary' => 'Hesap makinesi, kesici, düzenleyici ve masa kullanımını kolaylaştıran ürünler.',
+            'summary' => 'Çalışma masaları için düzen, ölçüm, kesim ve yardımcı ekipmanlar.',
+            'description' => 'Hesap makinesi, maket bıçağı, cetvel, düzenleyici ve masaüstü yardımcılarında ofis ekiplerine uygun toplu seçenekler sunulur.',
+            'samples' => ['Hesap makinesi', 'Maket bıçağı', 'Cetvel ve makas', 'Masa düzenleyici', 'Pano ve aksesuar'],
+            'brands' => ['Mas', 'Maped', 'Bigpoint', 'Legamaster', 'Kraf'],
+            'advantages' => ['Departman kullanımına göre ürün seçimi yapılır.', 'Uzun ömürlü masaüstü ekipmanları önerilir.', 'Eksik ofis kurulum listeleri tamamlanır.'],
+            'faq' => [
+                ['q' => 'Yeni ofis kurulumu için masaüstü listesi hazırlanır mı?', 'a' => 'Evet. Kişi sayısı ve departman yapısına göre ihtiyaç listesi oluşturulabilir.'],
+                ['q' => 'Hesap makinesi gibi ürünlerde marka seçebilir miyiz?', 'a' => 'Evet. Marka ve adet bilgisi teklif formunda belirtilebilir.'],
+            ],
+            'meta_description' => 'Masaüstü gereçleri için kurumsal teklif. Hesap makinesi, maket bıçağı, cetvel, makas ve ofis düzenleyiciler.',
         ],
         [
             'slug' => 'yazi-gerecleri',
             'title' => 'Yazı Gereçleri',
             'image' => asset('images/products/yazi-gerecleri.jpg'),
-            'summary' => 'Tükenmez kalem, fosforlu kalem, marker, kurşun kalem ve imza kalemleri.',
+            'summary' => 'Kalem, marker ve işaretleme ürünlerinde marka standartlı tedarik.',
+            'description' => 'Tükenmez kalem, fosforlu kalem, marker, tahta kalemi ve imza kalemlerinde kullanım alanına göre doğru ürün seçimi yapılır.',
+            'samples' => ['Tükenmez kalem', 'Fosforlu kalem', 'Tahta kalemi', 'Marker ve permanent kalem', 'İmza kalemleri'],
+            'brands' => ['Pensan', 'Faber-Castell', 'Stabilo', 'Staedtler', 'Edding'],
+            'advantages' => ['Kurum standardına uygun marka korunur.', 'Departman tüketimine göre adet planlanır.', 'Muadil kalem seçenekleriyle maliyet dengelenir.'],
+            'faq' => [
+                ['q' => 'Tek marka kalem tedariği yapılabilir mi?', 'a' => 'Evet. Kurum standardınız varsa aynı marka/model üzerinden teklif hazırlanır.'],
+                ['q' => 'Tahta kalemi ve marker ürünleri toplu alınabilir mi?', 'a' => 'Evet. Kutu veya adet bazlı teklif paylaşılır.'],
+            ],
+            'meta_description' => 'Yazı gereçleri için kurumsal teklif. Kalem, fosforlu kalem, marker, tahta kalemi ve imza kalemleri.',
         ],
         [
             'slug' => 'etiket-rulo',
             'title' => 'Etiket ve Rulo',
             'image' => asset('images/products/etiket-rulo.jpg'),
-            'summary' => 'Etiketleme, barkod, fiyatlama ve operasyon takip süreçleri için rulo ürünler.',
+            'summary' => 'Barkod, fiyatlama ve operasyon takibi için etiket-rulo tedariği.',
+            'description' => 'Termal etiket, barkod etiketi, fiyat etiketi ve rulo ürünlerinde ölçü, sarım ve kullanım alanı bilgisine göre teklif hazırlanır.',
+            'samples' => ['Termal etiket', 'Barkod etiketi', 'Fiyat etiketi', 'Rulo ürünler', 'Etiketleme sarfları'],
+            'brands' => ['Tanex', 'Mas', 'Bigpoint', 'Noki', 'Bafix'],
+            'advantages' => ['Ölçü ve kullanım alanına göre doğru ürün seçilir.', 'Depo, mağaza ve üretim takibi desteklenir.', 'Düzenli tüketimde stok sürekliliği sağlanır.'],
+            'faq' => [
+                ['q' => 'Etiket ölçüsünü bilmiyorsak nasıl ilerleriz?', 'a' => 'Mevcut etiketten fotoğraf veya ölçü bilgisi gönderebilirsiniz; uygun seçenek belirlenir.'],
+                ['q' => 'Termal rulo ürünlerinde toplu teklif var mı?', 'a' => 'Evet. Rulo adedi, ölçü ve kullanım alanına göre teklif hazırlanır.'],
+            ],
+            'meta_description' => 'Etiket ve rulo ürünleri için kurumsal teklif. Termal etiket, barkod etiketi, fiyat etiketi ve operasyon sarfları.',
         ],
     ];
+}
+
+function find_product_group(string $slug): ?array
+{
+    foreach (product_groups() as $group) {
+        if ($group['slug'] === $slug) {
+            return $group;
+        }
+    }
+
+    return null;
+}
+
+function product_group_options(): array
+{
+    return array_map(static fn (array $group): string => $group['title'], product_groups());
 }
 
 function services(): array
 {
     return [
-        'Kurumsal tedarik',
-        'Toplu sipariş yönetimi',
-        'Düzenli teslimat',
-        'Tekliflendirme',
-        'Ürün danışmanlığı',
-        'Kuruma özel çözüm',
-        'Faturalı satış',
-        'Kurum ve ofis ihtiyaç planlaması',
+        ['title' => 'Kurumsal tedarik', 'text' => 'Şirket, kamu kurumu ve sanayi işletmelerinin düzenli tükettiği ürünler tek tedarik planında toplanır.'],
+        ['title' => 'Toplu sipariş yönetimi', 'text' => 'Farklı departmanlardan gelen listeler marka, adet ve teslimat önceliğine göre sadeleştirilir.'],
+        ['title' => 'Düzenli teslimat', 'text' => 'Hafta içi şehir içi servisle kurum içi ihtiyaçlar raflara veya ilgili birime zamanında ulaşır.'],
+        ['title' => 'Tekliflendirme', 'text' => 'Toptan ve proje bazlı fiyatlar ürün grubu, miktar ve marka standardına göre netleştirilir.'],
+        ['title' => 'Ürün danışmanlığı', 'text' => 'Orijinal, muadil veya alternatif ürün seçenekleri kullanım amacına göre karşılaştırılır.'],
+        ['title' => 'Kuruma özel çözüm', 'text' => 'Aylık tüketim, dönemsel proje veya yeni ofis kurulumu için esnek tedarik setleri hazırlanır.'],
+        ['title' => 'Faturalı satış', 'text' => 'Kurumsal satın alma süreçlerine uygun fatura, teslimat ve kayıt akışı desteklenir.'],
+        ['title' => 'İhtiyaç planlama', 'text' => 'Sık tükenen ürünler belirlenir, tekrar siparişleri kolaylaştıran standart liste yapısı kurulur.'],
     ];
 }
 
@@ -212,36 +335,146 @@ function blog_posts(): array
 {
     return [
         [
+            'slug' => 'kurumsal-kirtasiye-tedarikinde-planlama',
             'title' => 'Kurumsal Kırtasiye Tedarikinde Planlama Nasıl Yapılır?',
             'excerpt' => 'Departman ihtiyaçlarını tek listede toplamak, tüketim hızını ölçmek ve dönemsel stok planı oluşturmak maliyeti düşürür.',
             'category' => 'Tedarik',
             'date' => '2026-06-13',
+            'read_time' => '4 dk',
+            'content' => [
+                ['heading' => 'İhtiyaç listesini tek merkezde toplayın', 'body' => ['Kurumsal kırtasiye alımlarında en çok zaman kaybı, farklı ekiplerden gelen küçük taleplerin dağınık yönetilmesinden doğar. Satın alma ekibi önce ürünleri kategori, adet ve marka standardına göre tek listeye almalıdır.']],
+                ['heading' => 'Sık tüketilen ürünleri ayrı işaretleyin', 'body' => ['A4 kağıt, toner, kalem, dosya ve ambalaj ürünleri gibi sürekli tüketilen kalemler düzenli takip edilirse acil alım maliyeti azalır.']],
+                ['heading' => 'Teslimat beklentisini baştan netleştirin', 'body' => ['Aynı gün teslimat, haftalık servis veya proje teslimi gibi beklentiler teklif aşamasında belirtilmelidir. Bu bilgi hem fiyatı hem de stok planını doğrudan etkiler.']],
+            ],
         ],
         [
-            'title' => 'Toplu Kırtasiye Siparişlerinde Dikkat Edilmesi Gerekenler',
+            'slug' => 'toplu-kirtasiye-siparislerinde-dikkat-edilecekler',
+            'title' => 'Toplu Kırtasiye Siparişlerinde Dikkat Edilecekler',
             'excerpt' => 'Marka standardı, teslimat takvimi, faturalandırma ve ürün muadil politikası teklif sürecini netleştirir.',
             'category' => 'Satın Alma',
             'date' => '2026-06-13',
+            'read_time' => '3 dk',
+            'content' => [
+                ['heading' => 'Marka veya muadil tercihini yazın', 'body' => ['Bazı ürünlerde marka standardı kritik olabilir; bazı ürünlerde ise muadil seçenek maliyeti düşürebilir. Teklif talebinde bu ayrımı belirtmek daha doğru karşılaştırma sağlar.']],
+                ['heading' => 'Adet aralığını netleştirin', 'body' => ['Toplu siparişlerde adet bilgisi fiyatı doğrudan etkiler. Kesin sayı yoksa tahmini adet aralığı paylaşmak da teklif sürecini hızlandırır.']],
+                ['heading' => 'Faturalı satış bilgilerini hazır tutun', 'body' => ['Firma unvanı, teslimat adresi ve yetkili kişi bilgileri tekliften siparişe geçişi hızlandırır.']],
+            ],
         ],
         [
+            'slug' => 'ofis-sarf-malzemelerinde-stok-surekliligi',
             'title' => 'Ofis Sarf Malzemelerinde Stok Sürekliliği',
             'excerpt' => 'Kağıt, kalem, toner, etiket ve ambalaj ürünleri için düzenli tedarik akışı iş sürekliliğini destekler.',
             'category' => 'Operasyon',
             'date' => '2026-06-13',
+            'read_time' => '4 dk',
+            'content' => [
+                ['heading' => 'Kritik sarfları ayırın', 'body' => ['Kağıt, toner, etiket ve sık kullanılan kalemler bittiğinde iş akışı doğrudan etkilenir. Bu ürünler için minimum stok seviyesi belirlenmelidir.']],
+                ['heading' => 'Aylık tüketimi izleyin', 'body' => ['Her ay tekrar eden ürünler belirlendiğinde satın alma ekibi daha az acil talep yönetir ve daha iyi fiyat alır.']],
+                ['heading' => 'Servis modelini kullanın', 'body' => ['Denizli şehir içi servis, düzenli tedarik planında ofis içi operasyon yükünü azaltır.']],
+            ],
         ],
+        [
+            'slug' => 'denizlide-kurumsal-kirtasiye-tedarikcisi-secimi',
+            'title' => "Denizli'de Kurumsal Kırtasiye Tedarikçisi Seçimi",
+            'excerpt' => 'Geniş ürün kapsamı, teslimat gücü, faturalı satış ve kurumsal referanslar doğru tedarikçi seçiminde belirleyicidir.',
+            'category' => 'Denizli',
+            'date' => '2026-06-13',
+            'read_time' => '4 dk',
+            'content' => [
+                ['heading' => 'Ürün kapsamı geniş olmalı', 'body' => ['Satın alma ekipleri tek kalem ürün değil, tüm ofis ve sarf ihtiyacını aynı tedarikçiden yönetmek ister. 10.000+ ürün kapsamı bu noktada zaman kazandırır.']],
+                ['heading' => 'Teslimat hızı satın alma maliyetidir', 'body' => ['Sadece ürün fiyatı değil, ürünün ne zaman ve nasıl teslim edildiği de toplam maliyetin parçasıdır. 13:00’a kadar aynı gün teslimat bu yüzden değerlidir.']],
+                ['heading' => 'Kurumsal işleyişe uyum aranmalı', 'body' => ['Faturalı satış, yetkili iletişimi, ürün listesi yönetimi ve muadil önerileri profesyonel tedarikçinin ayırt edici özellikleridir.']],
+            ],
+        ],
+        [
+            'slug' => 'toner-kartus-tedarikinde-muadil-urun-secimi',
+            'title' => 'Toner Kartuş Tedarikinde Muadil Ürün Seçimi',
+            'excerpt' => 'Muadil toner seçerken yazıcı uyumluluğu, baskı kalitesi, garanti yaklaşımı ve adet bazlı maliyet birlikte değerlendirilmelidir.',
+            'category' => 'Baskı Sarf',
+            'date' => '2026-06-13',
+            'read_time' => '3 dk',
+            'content' => [
+                ['heading' => 'Yazıcı modeli en kritik bilgidir', 'body' => ['Doğru toner veya kartuş seçimi için yazıcının marka ve model bilgisi gerekir. Bu bilgi olmadan yapılan eşleşmeler baskı sorunlarına yol açabilir.']],
+                ['heading' => 'Orijinal ve muadil fiyatını birlikte görün', 'body' => ['Her kullanım senaryosunda en ucuz seçenek doğru olmayabilir. Baskı hacmi, belge türü ve cihaz yaşı değerlendirilmelidir.']],
+                ['heading' => 'Stok sürekliliğini planlayın', 'body' => ['Baskı bir kurum için kritikse toner bitmeden tekrar sipariş akışı kurulmalıdır.']],
+            ],
+        ],
+        [
+            'slug' => 'sirketler-icin-aylik-kirtasiye-ihtiyac-listesi',
+            'title' => 'Şirketler İçin Aylık Kırtasiye İhtiyaç Listesi',
+            'excerpt' => 'Aylık ofis sarf listesi, tekrar eden alımları düzenler ve satın alma ekibinin hızlı teklif almasını sağlar.',
+            'category' => 'Kontrol Listesi',
+            'date' => '2026-06-13',
+            'read_time' => '5 dk',
+            'content' => [
+                ['heading' => 'Temel ofis ürünleri', 'body' => ['A4 kağıt, kalem, not kağıdı, zımba teli, ataş, bant, klasör ve poşet dosya çoğu kurumun aylık listesinde yer alır.']],
+                ['heading' => 'Departman bazlı sarflar', 'body' => ['Muhasebe için arşiv ve dosyalama, depo için etiket ve koli bandı, idari işler için temizlik ve masaüstü ürünleri ayrı takip edilebilir.']],
+                ['heading' => 'Listeyi teklif formuna ekleyin', 'body' => ['Excel veya PDF listenizi teklif formuna ekleyerek daha hızlı ve eksiksiz fiyat alabilirsiniz.']],
+            ],
+        ],
+    ];
+}
+
+function find_blog_post(string $slug): ?array
+{
+    foreach (blog_posts() as $post) {
+        if ($post['slug'] === $slug) {
+            return $post;
+        }
+    }
+
+    return null;
+}
+
+function brand_items(): array
+{
+    return [
+        ['name' => 'Faber-Castell', 'category' => 'Yazı Gereçleri', 'featured' => true],
+        ['name' => 'Stabilo', 'category' => 'Yazı Gereçleri', 'featured' => true],
+        ['name' => 'Staedtler', 'category' => 'Yazı Gereçleri', 'featured' => true],
+        ['name' => 'Pensan', 'category' => 'Yazı Gereçleri', 'featured' => true],
+        ['name' => 'Bic', 'category' => 'Yazı Gereçleri', 'featured' => false],
+        ['name' => 'Uniball', 'category' => 'Yazı Gereçleri', 'featured' => false],
+        ['name' => 'Edding', 'category' => 'Yazı Gereçleri', 'featured' => false],
+        ['name' => 'Pelikan', 'category' => 'Yazı Gereçleri', 'featured' => false],
+        ['name' => 'Adel', 'category' => 'Okul Kırtasiye', 'featured' => true],
+        ['name' => 'Gıpta', 'category' => 'Kağıt Ürünleri', 'featured' => true],
+        ['name' => 'Mopak', 'category' => 'Kağıt Ürünleri', 'featured' => false],
+        ['name' => 'Allcopy', 'category' => 'Kağıt Ürünleri', 'featured' => true],
+        ['name' => 'Mas', 'category' => 'Ofis Kırtasiye', 'featured' => true],
+        ['name' => 'Noki', 'category' => 'Dosyalama', 'featured' => true],
+        ['name' => 'Serve', 'category' => 'Okul Kırtasiye', 'featured' => false],
+        ['name' => 'Hi-Text', 'category' => 'Yazı Gereçleri', 'featured' => false],
+        ['name' => 'Maped', 'category' => 'Masaüstü', 'featured' => true],
+        ['name' => 'Pritt', 'category' => 'Ofis Kırtasiye', 'featured' => true],
+        ['name' => 'Monami', 'category' => 'Yazı Gereçleri', 'featured' => false],
+        ['name' => 'Bigpoint', 'category' => 'Ofis Kırtasiye', 'featured' => false],
+        ['name' => 'Fatih', 'category' => 'Okul Kırtasiye', 'featured' => false],
+        ['name' => 'Tanex', 'category' => 'Etiket ve Rulo', 'featured' => true],
+        ['name' => 'Bafix', 'category' => 'Ambalaj', 'featured' => false],
+        ['name' => 'Keskin Color', 'category' => 'Kağıt Ürünleri', 'featured' => false],
+        ['name' => 'Nova Color', 'category' => 'Okul Kırtasiye', 'featured' => false],
+        ['name' => 'Giotto', 'category' => 'Okul Kırtasiye', 'featured' => false],
+        ['name' => 'Lyra', 'category' => 'Yazı Gereçleri', 'featured' => false],
+        ['name' => 'Legamaster', 'category' => 'Masaüstü', 'featured' => false],
+        ['name' => 'Kraf', 'category' => 'Arşivleme', 'featured' => true],
+        ['name' => 'Brons', 'category' => 'Ofis Kırtasiye', 'featured' => false],
     ];
 }
 
 function brands(): array
 {
-    return [
-        'Faber-Castell', 'Stabilo', 'Staedtler', 'Pensan', 'Bic', 'Uniball',
-        'Sharpie', 'Edding', 'Pelikan', 'Adel', 'Mas', 'Noki',
-        'Serve', 'Hi-Text', 'Gıpta', 'Maped', 'Pritt', 'Monami',
-        'Bigpoint', 'Mopak', 'Fatih', 'Tanex', 'Dong-A', 'Bafix',
-        'Keskin Color', 'Nova Color', 'Giotto', 'Lyra', 'Snowman', 'Legamaster',
-        'Carioca', 'Amos', 'Play-Doh', 'Alpino', 'Kraf', 'Brons',
-    ];
+    return array_map(static fn (array $brand): string => $brand['name'], brand_items());
+}
+
+function featured_brands(): array
+{
+    return array_values(array_filter(brand_items(), static fn (array $brand): bool => !empty($brand['featured'])));
+}
+
+function brand_categories(): array
+{
+    return array_values(array_unique(array_map(static fn (array $brand): string => $brand['category'], brand_items())));
 }
 
 function special_services(): array
@@ -249,18 +482,18 @@ function special_services(): array
     return [
         [
             'icon' => 'truck',
-            'title' => 'Hafta İçi Her Gün Şehir İçi Servis',
-            'text' => 'Kurumsal müşterilerimize hafta içi her gün düzenli şehir içi teslimat. Siparişinizi biz getiriyoruz; ofisinizden çıkmanıza gerek yok.',
+            'title' => 'Hafta İçi Şehir İçi Servis',
+            'text' => 'Kurumsal müşterilere hafta içi planlı Denizli şehir içi teslimat sağlanır; ürünler doğrudan ofise veya işletmeye ulaşır.',
         ],
         [
             'icon' => 'clock',
-            'title' => "Saat 13:00'a Kadar Aynı Gün Teslimat",
-            'text' => "Saat 13:00'a kadar verilen siparişler aynı gün teslim edilir. Acil ihtiyaçlarınızda işiniz hiç beklemez.",
+            'title' => "13:00'a Kadar Aynı Gün Teslimat",
+            'text' => "Saat 13:00'a kadar gelen uygun siparişler aynı gün teslimat akışına alınır; acil ofis sarf ihtiyaçları beklemez.",
         ],
         [
             'icon' => 'factory',
-            'title' => 'Organize ve Çevre Sanayi Sitelerine Özel',
-            'text' => 'Organize Sanayi Bölgesi ve çevre sanayi sitelerindeki işyerlerine doğrudan, planlı ve düzenli tedarik desteği sağlıyoruz.',
+            'title' => 'Sanayi ve Kurum Odaklı Çalışma',
+            'text' => 'Organize ve çevre sanayi siteleri, kamu kurumları ve şirketlerin faturalı satın alma akışına uygun tedarik modeli sunulur.',
         ],
     ];
 }
@@ -268,14 +501,14 @@ function special_services(): array
 function product_categories(): array
 {
     return [
-        'Defter & Ajanda',
-        'Dosyalama & Arşivleme',
-        'Kağıt Ürünleri',
-        'Kalem & Yazı Gereçleri',
+        'Yazı Gereçleri',
         'Ofis Kırtasiye',
-        'Okul Kırtasiye',
-        'Pano ve Aksesuar',
-        'Sanatsal Malzemeler',
+        'Kağıt Ürünleri',
+        'Toner & Kartuş',
+        'Dosyalama',
+        'Arşivleme',
+        'Ambalaj',
+        'Etiket ve Rulo',
     ];
 }
 
@@ -331,8 +564,17 @@ function handle_uploaded_files(string $field, array &$errors): array
         return $saved;
     }
 
-    $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'heic', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'txt'];
-    $maxSize = 8 * 1024 * 1024; // 8 MB
+    $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'heic', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv', 'txt'];
+    $allowedMimes = [
+        'image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/heic', 'image/heif',
+        'application/pdf',
+        'text/plain', 'text/csv',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    ];
+    $maxSize = 8 * 1024 * 1024;
     $maxFiles = 5;
 
     $destDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'ekler';
@@ -340,6 +582,7 @@ function handle_uploaded_files(string $field, array &$errors): array
         @mkdir($destDir, 0775, true);
     }
 
+    $finfo = function_exists('finfo_open') ? finfo_open(FILEINFO_MIME_TYPE) : null;
     $count = count($_FILES[$field]['name']);
     $accepted = 0;
     for ($i = 0; $i < $count; $i++) {
@@ -363,13 +606,19 @@ function handle_uploaded_files(string $field, array &$errors): array
         }
 
         $ext = strtolower(pathinfo($orig, PATHINFO_EXTENSION));
-        if (!in_array($ext, $allowed, true)) {
-            $errors[] = $orig . ' desteklenmeyen bir dosya türü (izinli: resim, PDF, Word, Excel).';
+        if (!in_array($ext, $allowedExtensions, true)) {
+            $errors[] = $orig . ' desteklenmeyen bir dosya türü.';
             continue;
         }
 
         $tmp = $_FILES[$field]['tmp_name'][$i];
-        $safeName = bin2hex(random_bytes(6)) . '.' . $ext;
+        $mime = $finfo ? (string) finfo_file($finfo, $tmp) : '';
+        if ($mime !== '' && !in_array($mime, $allowedMimes, true) && $ext !== 'csv') {
+            $errors[] = $orig . ' güvenli bir dosya türü olarak doğrulanamadı.';
+            continue;
+        }
+
+        $safeName = bin2hex(random_bytes(8)) . '.' . $ext;
         $target = $destDir . DIRECTORY_SEPARATOR . $safeName;
         if (is_uploaded_file($tmp) && move_uploaded_file($tmp, $target)) {
             $saved[] = ['path' => $target, 'name' => $orig];
@@ -377,6 +626,10 @@ function handle_uploaded_files(string $field, array &$errors): array
         } else {
             $errors[] = $orig . ' kaydedilemedi.';
         }
+    }
+
+    if ($finfo) {
+        finfo_close($finfo);
     }
 
     return $saved;
@@ -409,10 +662,8 @@ function send_form_mail(string $subject, array $fields, array $attachments, stri
             if (SMTP_SECURE !== '') {
                 $mail->SMTPSecure = SMTP_SECURE;
             } else {
-                // Sunucu STARTTLS desteklemiyor; otomatik TLS denemesini kapat
                 $mail->SMTPAutoTLS = false;
             }
-            // Paylaşımlı hosting'lerde sertifika adı uyuşmazlığını tolere et
             $mail->SMTPOptions = [
                 'ssl' => [
                     'verify_peer' => false,
@@ -442,8 +693,8 @@ function send_form_mail(string $subject, array $fields, array $attachments, stri
         $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body = '<div style="font-family:Arial,sans-serif;color:#16202e">'
-            . '<h2 style="color:#d2620e;margin:0 0 14px">' . e(SITE_NAME) . ' — Yeni İletişim Talebi</h2>'
-            . '<table style="border-collapse:collapse;width:100%;max-width:640px">' . $rows . '</table>'
+            . '<h2 style="color:#d2620e;margin:0 0 14px">' . e(SITE_NAME) . ' - Yeni Teklif / İletişim Talebi</h2>'
+            . '<table style="border-collapse:collapse;width:100%;max-width:720px">' . $rows . '</table>'
             . '<p style="margin-top:16px;color:#5b6776;font-size:13px">Bu mesaj web sitesi formundan gönderildi.</p></div>';
         $mail->AltBody = $text;
 
@@ -545,6 +796,11 @@ function handle_form_submission(string $formKey, array $requiredFields, array $o
         send_form_mail($subject, $mailFields, $attachments, $email, $replyName);
     }
 
+    if (!empty($options['redirect'])) {
+        header('Location: ' . (string) $options['redirect'], true, 303);
+        exit;
+    }
+
     return ['status' => 'success', 'errors' => [], 'old' => []];
 }
 
@@ -555,12 +811,8 @@ function old_value(array $form, string $key): string
 
 function social_links(): array
 {
-    // İşletmenin sosyal medya / dizin profilleri (yapay zeka ve arama motorları için).
-    // Doldurdukça AI uygulamaları işletmeyi daha güvenilir bulur.
     return array_values(array_filter([
         SOCIAL_INSTAGRAM,
-        // 'https://www.facebook.com/...',
-        // 'https://www.linkedin.com/company/...',
         maps_place_url(),
     ]));
 }
@@ -568,45 +820,19 @@ function social_links(): array
 function faqs(): array
 {
     return [
-        [
-            'q' => 'Başarırlar Kurumsal Kırtasiye nerede?',
-            'a' => 'Dokuzkavaklar Mahallesi Ankara Bulvarı No:86 Pamukkale / Denizli adresindeyiz. Denizli ve çevresindeki kurumlara hizmet veriyoruz.',
-        ],
-        [
-            'q' => 'Denizli\'de kurumsal kırtasiye tedarikçisi arıyorum, kime başvurmalıyım?',
-            'a' => 'Başarırlar Kurumsal Kırtasiye, Denizli\'nin en büyük kurumsal kırtasiyesidir. 10.000+ ürün ve 100+ marka ile şirketlere, kamu kurumlarına ve sanayi işletmelerine toptan ve proje bazlı tedarik sağlar. ' . CONTACT_PHONE . ' numarasından veya WhatsApp ' . CONTACT_WHATSAPP . ' üzerinden ulaşabilirsiniz.',
-        ],
-        [
-            'q' => 'Aynı gün teslimat var mı?',
-            'a' => 'Evet. Hafta içi her gün şehir içi servisimizle, saat 13:00\'a kadar verilen siparişler aynı gün teslim edilir.',
-        ],
-        [
-            'q' => 'Bireysel (perakende) satış yapıyor musunuz?',
-            'a' => 'Hayır. Başarırlar Kurumsal Kırtasiye yalnızca şirketlere, kamu kurumlarına ve sanayi işletmelerine kurumsal satış yapar; okullara bireysel/perakende satış yapılmaz.',
-        ],
-        [
-            'q' => 'Hangi ürünleri tedarik ediyorsunuz?',
-            'a' => 'Ofis kırtasiye, okul kırtasiye, kağıt ürünleri, toner ve kartuş, dosyalama, arşivleme, bilgisayar sarf malzemeleri, ambalaj, promosyon, masaüstü ve yazı gereçleri dahil 10.000+ ürün.',
-        ],
-        [
-            'q' => 'Hangi markaları bulundururuyorsunuz?',
-            'a' => 'Faber-Castell, Stabilo, Staedtler, Pensan, Bic, Uniball, Pelikan, Adel, Mas, Maped ve 100+ öncü marka stoklarımızdadır.',
-        ],
-        [
-            'q' => 'Sanayi sitelerine teslimat yapıyor musunuz?',
-            'a' => 'Evet. Organize Sanayi Bölgesi ve çevre sanayi sitelerindeki işyerlerine doğrudan, planlı ve düzenli tedarik desteği veriyoruz.',
-        ],
-        [
-            'q' => 'Nasıl fiyat teklifi alabilirim?',
-            'a' => 'Ürün listenizi web sitesindeki teklif formundan, e-posta (' . CONTACT_EMAIL . ') veya WhatsApp (' . CONTACT_WHATSAPP . ') ile iletmeniz yeterli. Toptan ve proje bazlı rekabetçi fiyat hazırlanır. Bize fiyat sormadan kırtasiye almaya karar vermeyin.',
-        ],
+        ['q' => 'Başarırlar Kurumsal Kırtasiye kimlere hizmet verir?', 'a' => 'Şirketler, kamu kurumları, organize sanayi ve çevre sanayi sitelerindeki işletmeler için kurumsal ve faturalı satış yapılır. Bireysel/perakende satış odağı yoktur.'],
+        ['q' => 'Aynı gün teslimat var mı?', 'a' => "Evet. Denizli şehir içinde hafta içi saat 13:00'a kadar gelen uygun siparişler aynı gün teslimat akışına alınır."],
+        ['q' => 'Ürün listemi nasıl gönderebilirim?', 'a' => 'Teklif formundan Excel, PDF, görsel veya metin dosyası yükleyebilir; dilerseniz WhatsApp üzerinden liste paylaşabilirsiniz.'],
+        ['q' => 'Toptan ve proje bazlı fiyat alabilir miyim?', 'a' => 'Evet. Ürün grubu, miktar, marka tercihi ve teslimat beklentisine göre kurumsal fiyat hazırlanır.'],
+        ['q' => 'Hangi ürün gruplarını tedarik ediyorsunuz?', 'a' => 'Ofis kırtasiye, okul kırtasiye, kağıt, toner-kartuş, dosyalama, arşivleme, bilgisayar sarf, ambalaj, promosyon, masaüstü, yazı gereçleri ve etiket-rulo dahil 10.000+ ürün.'],
+        ['q' => 'Sanayi sitelerine servis var mı?', 'a' => 'Evet. Organize ve çevre sanayi sitelerindeki işletmelere planlı şehir içi servis desteği sağlanır.'],
     ];
 }
 
-function faq_schema(): array
+function faq_schema(?array $faqs = null): array
 {
     $items = [];
-    foreach (faqs() as $faq) {
+    foreach ($faqs ?? faqs() as $faq) {
         $items[] = [
             '@type' => 'Question',
             'name' => $faq['q'],
@@ -624,7 +850,7 @@ function faq_schema(): array
     ];
 }
 
-function breadcrumb_schema(string $activePage): array
+function breadcrumb_schema(string $activePage, array $trail = []): array
 {
     $items = [[
         '@type' => 'ListItem',
@@ -633,14 +859,25 @@ function breadcrumb_schema(string $activePage): array
         'item' => canonical_url(''),
     ]];
 
-    $nav = nav_items();
-    if ($activePage !== 'anasayfa' && isset($nav[$activePage])) {
-        $items[] = [
-            '@type' => 'ListItem',
-            'position' => 2,
-            'name' => $nav[$activePage]['label'],
-            'item' => canonical_url($activePage),
-        ];
+    if ($trail) {
+        foreach ($trail as $entry) {
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => count($items) + 1,
+                'name' => $entry['name'],
+                'item' => canonical_url($entry['path']),
+            ];
+        }
+    } else {
+        $nav = nav_items();
+        if ($activePage !== 'anasayfa' && isset($nav[$activePage])) {
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => 2,
+                'name' => $nav[$activePage]['label'],
+                'item' => canonical_url($activePage),
+            ];
+        }
     }
 
     return [
@@ -660,6 +897,7 @@ function page_schema(): array
                 '@type' => 'Product',
                 'name' => $group['title'],
                 'description' => $group['summary'],
+                'url' => canonical_url('urun-gruplari/' . $group['slug']),
             ],
         ];
     }
@@ -672,14 +910,14 @@ function page_schema(): array
         'url' => canonical_url(''),
         'logo' => canonical_url('assets/images/basarirlar-logo.png'),
         'image' => canonical_url('assets/images/basarirlar-logo.png'),
-        'slogan' => SITE_SLOGAN,
-        'description' => COMPANY_NAME . ', ' . SITE_TAGLINE . '. 10.000+ ürün ve 100+ marka ile şirketlere, kamu kurumlarına ve sanayi işletmelerine toptan ve proje bazlı kırtasiye tedariği sağlar.',
+        'slogan' => SITE_TAGLINE,
+        'description' => COMPANY_NAME . ', ' . SITE_TAGLINE . '. 40+ yıl tedarik tecrübesi, 10.000+ ürün ve 100+ marka ile kurumlara toptan kırtasiye tedariği sağlar.',
         'email' => CONTACT_EMAIL,
         'telephone' => '+90' . preg_replace('/\D+/', '', CONTACT_PHONE),
         'parentOrganization' => [
             '@type' => 'Organization',
             'name' => PARENT_COMPANY,
-            'description' => PARENT_COMPANY . ', 40 yılı aşkın geçmişiyle Ege\'nin en büyük yayın dağıtım firmasıdır.',
+            'description' => PARENT_COMPANY . ', 40 yılı aşkın geçmişiyle Ege bölgesinde yayın ve kırtasiye tedariği alanında faaliyet gösterir.',
         ],
         'sameAs' => social_links(),
         'knowsAbout' => [
@@ -697,7 +935,7 @@ function page_schema(): array
         'url' => canonical_url(''),
         'email' => CONTACT_EMAIL,
         'telephone' => '+90' . preg_replace('/\D+/', '', CONTACT_PHONE),
-        'description' => SITE_TAGLINE . '. Şirketlere, kamu kurumlarına ve sanayi işletmelerine 10.000+ ürün, 100+ marka ile toptan ve proje bazlı kırtasiye tedariği. Hafta içi her gün şehir içi servis ve 13:00\'a kadar aynı gün teslimat.',
+        'description' => SITE_TAGLINE . '. Şirketlere, kamu kurumlarına ve sanayi işletmelerine 10.000+ ürün, 100+ marka ile toptan ve proje bazlı kırtasiye tedariği.',
         'slogan' => SITE_TAGLINE,
         'priceRange' => '₺₺',
         'currenciesAccepted' => 'TRY',
@@ -722,7 +960,6 @@ function page_schema(): array
             ['@type' => 'AdministrativeArea', 'name' => 'Pamukkale'],
             ['@type' => 'AdministrativeArea', 'name' => 'Merkezefendi'],
             ['@type' => 'Place', 'name' => 'Denizli Organize Sanayi Bölgesi'],
-            ['@type' => 'AdministrativeArea', 'name' => 'Ege Bölgesi'],
         ],
         'openingHoursSpecification' => [
             '@type' => 'OpeningHoursSpecification',
@@ -754,5 +991,50 @@ function page_schema(): array
     return [
         '@context' => 'https://schema.org',
         '@graph' => [$organization, $localBusiness, $website],
+    ];
+}
+
+function product_group_schema(array $group): array
+{
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'CollectionPage',
+        'name' => $group['title'] . ' | ' . SITE_NAME,
+        'description' => $group['meta_description'] ?? $group['description'],
+        'url' => canonical_url('urun-gruplari/' . $group['slug']),
+        'mainEntity' => [
+            '@type' => 'OfferCatalog',
+            'name' => $group['title'],
+            'itemListElement' => array_map(static fn (string $item): array => [
+                '@type' => 'Offer',
+                'itemOffered' => ['@type' => 'Product', 'name' => $item],
+            ], $group['samples']),
+        ],
+    ];
+}
+
+function blog_post_schema(array $post): array
+{
+    return [
+        '@context' => 'https://schema.org',
+        '@type' => 'BlogPosting',
+        'headline' => $post['title'],
+        'description' => $post['excerpt'],
+        'datePublished' => $post['date'],
+        'dateModified' => $post['date'],
+        'inLanguage' => 'tr-TR',
+        'url' => canonical_url('blog/' . $post['slug']),
+        'author' => [
+            '@type' => 'Organization',
+            'name' => SITE_NAME,
+        ],
+        'publisher' => [
+            '@type' => 'Organization',
+            'name' => SITE_NAME,
+            'logo' => [
+                '@type' => 'ImageObject',
+                'url' => canonical_url('assets/images/basarirlar-logo.png'),
+            ],
+        ],
     ];
 }

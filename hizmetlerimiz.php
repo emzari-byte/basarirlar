@@ -47,8 +47,8 @@ require __DIR__ . '/includes/header.php';
             <?php foreach (services() as $index => $service): ?>
                 <article class="service-card">
                     <span><?= $index + 1; ?></span>
-                    <h3><?= e($service); ?></h3>
-                    <p>Kurumunuzun ürün listesi, adet beklentisi ve teslimat düzeni dikkate alınarak uygulanabilir bir tedarik akışı oluşturulur.</p>
+                    <h3><?= e($service['title']); ?></h3>
+                    <p><?= e($service['text']); ?></p>
                 </article>
             <?php endforeach; ?>
         </div>

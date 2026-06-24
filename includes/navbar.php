@@ -2,8 +2,8 @@
     <div class="top-strip">
         <div class="container top-strip__inner">
             <span><?= e(SITE_TAGLINE); ?> · <?= e(SITE_SLOGAN); ?></span>
-            <a href="tel:+902582634567"><?= e(CONTACT_PHONE); ?></a>
-            <a href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>" target="_blank" rel="noopener">WhatsApp: <?= e(CONTACT_WHATSAPP); ?></a>
+            <a href="tel:+902582634567" data-track="phone_click"><?= e(CONTACT_PHONE); ?></a>
+            <a href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp: <?= e(CONTACT_WHATSAPP); ?></a>
         </div>
     </div>
     <nav class="navbar" aria-label="Ana menü">
@@ -30,9 +30,9 @@
                 ?>
                     <a class="<?= e(implode(' ', $classes)); ?>" href="<?= e($item['href']); ?>"><?= e($item['label']); ?></a>
                 <?php endforeach; ?>
-                <a class="nav-menu__quote" href="<?= e(url('teklif-al')); ?>">Teklif Al</a>
+                <a class="nav-menu__quote" href="<?= e(url('teklif-al')); ?>" data-track="category_quote_click" data-category="header">Teklif Al</a>
             </div>
-            <a class="navbar__cta" href="<?= e(url('teklif-al')); ?>">Teklif Al</a>
+            <a class="navbar__cta" href="<?= e(url('teklif-al')); ?>" data-track="category_quote_click" data-category="header">Teklif Al</a>
         </div>
     </nav>
 </header>

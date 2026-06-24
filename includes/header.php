@@ -6,6 +6,8 @@ $pageDescription = $pageDescription ?? 'Başarırlar Kurumsal Kırtasiye; şirke
 $pagePath = $pagePath ?? '';
 $pageImage = $pageImage ?? asset('images/hero-kurumsal-kirtasiye.jpg');
 $activePage = $activePage ?? 'anasayfa';
+$breadcrumbTrail = $breadcrumbTrail ?? [];
+$pageOgType = $pageOgType ?? 'website';
 ?>
 <!doctype html>
 <html lang="tr">
@@ -23,7 +25,7 @@ $activePage = $activePage ?? 'anasayfa';
     <meta name="ICBM" content="<?= e(GEO_LAT); ?>, <?= e(GEO_LNG); ?>">
     <meta name="theme-color" content="#f47a1f">
     <link rel="canonical" href="<?= e(canonical_url($pagePath)); ?>">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="<?= e($pageOgType); ?>">
     <meta property="og:site_name" content="<?= e(SITE_NAME); ?>">
     <meta property="og:locale" content="tr_TR">
     <meta property="og:title" content="<?= e($pageTitle); ?>">
@@ -37,18 +39,16 @@ $activePage = $activePage ?? 'anasayfa';
     <link rel="icon" type="image/png" href="<?= e(asset('images/favicon.png')); ?>">
     <link rel="preload" as="image" href="<?= e(asset('images/hero-kurumsal-kirtasiye.jpg')); ?>">
     <link rel="stylesheet" href="<?= e(versioned_asset('css/style.css')); ?>">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9PS90ZQL8"></script>
     <script>
+        window.BASARIRLAR_GA_ID = <?= json_encode(GA_MEASUREMENT_ID, JSON_UNESCAPED_SLASHES); ?>;
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-D9PS90ZQL8');
+        window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
     </script>
     <script type="application/ld+json">
 <?= json_encode(page_schema(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>
     </script>
     <script type="application/ld+json">
-<?= json_encode(breadcrumb_schema($activePage), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>
+<?= json_encode(breadcrumb_schema($activePage, $breadcrumbTrail), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>
     </script>
 <?php foreach (($pageJsonLd ?? []) as $jsonLdBlock): ?>
     <script type="application/ld+json">

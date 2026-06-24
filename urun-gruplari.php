@@ -1,6 +1,6 @@
 <?php
-$pageTitle = 'Ürün Grupları | Ofis, Kağıt, Toner ve Bilgisayar Sarf Ürünleri';
-$pageDescription = 'Başarırlar Kurumsal Kırtasiye ürün grupları: ofis kırtasiye, okul kırtasiye, kağıt, toner, dosyalama, arşivleme, bilgisayar sarf malzemeleri, ambalaj ve promosyon ürünleri.';
+$pageTitle = 'Ürün Grupları | Kurumsal Kırtasiye ve Ofis Sarf Tedariği';
+$pageDescription = 'Ofis kırtasiye, kağıt, toner, dosyalama, arşivleme, bilgisayar sarf, ambalaj, promosyon, masaüstü ve yazı gereçleri için kurumsal teklif alın.';
 $pagePath = 'urun-gruplari';
 $activePage = 'urun-gruplari';
 require __DIR__ . '/includes/header.php';
@@ -9,8 +9,8 @@ require __DIR__ . '/includes/header.php';
 <section class="page-hero">
     <div class="container">
         <p class="eyebrow">Ürün grupları</p>
-        <h1>Kurumsal satın alma için sınıflandırılmış kırtasiye ve sarf ürünleri</h1>
-        <p>İlk aşamada ürün grupları kart yapısıyla sunulur; altyapı ileride kategori detay sayfalarına ve teklif sepetine dönüşebilecek şekilde düzenlenmiştir.</p>
+        <h1>Kurumsal satın alma listelerini net ürün gruplarına ayırın.</h1>
+        <p>10.000+ ürün kapsamını tek tek gezmek yerine, kurumunuzun ihtiyacını doğru kategoriyle başlatın. Her kategori için örnek ürün, marka ve SSS sayfası hazır.</p>
     </div>
 </section>
 
@@ -19,13 +19,16 @@ require __DIR__ . '/includes/header.php';
         <div class="product-grid">
             <?php foreach (product_groups() as $group): ?>
                 <article class="card" id="<?= e($group['slug']); ?>">
-                    <div class="card__image">
-                        <img src="<?= e($group['image']); ?>" alt="<?= e($group['title']); ?>" loading="lazy">
-                    </div>
+                    <a class="card__image" href="<?= e(url('urun-gruplari/' . $group['slug'])); ?>">
+                        <img src="<?= e($group['image']); ?>" alt="<?= e($group['title']); ?> ürünleri" loading="lazy">
+                    </a>
                     <div class="card__body">
                         <h3><?= e($group['title']); ?></h3>
                         <p><?= e($group['summary']); ?></p>
-                        <a class="card__link" href="<?= e(url('teklif-al')); ?>">Bu grup için teklif al</a>
+                        <div class="card__actions">
+                            <a class="card__link" href="<?= e(url('urun-gruplari/' . $group['slug'])); ?>">Detayları incele</a>
+                            <a class="card__link card__link--muted" href="<?= e(url('teklif-al?urun_grubu=' . rawurlencode($group['title']))); ?>" data-track="category_quote_click" data-category="<?= e($group['slug']); ?>">Teklif al</a>
+                        </div>
                     </div>
                 </article>
             <?php endforeach; ?>
@@ -34,15 +37,12 @@ require __DIR__ . '/includes/header.php';
 </section>
 
 <section class="section">
-    <div class="container split">
+    <div class="container cta-band">
         <div>
-            <p class="eyebrow">Genişletilebilir altyapı</p>
-            <h2>Ürün grupları ileride kategori ve ürün detaylarına dönüşebilir.</h2>
-            <p>Her ürün grubu temiz slug yapısıyla tanımlandığı için yeni ürün fotoğrafları, marka filtreleri, stok bilgisi veya teklif sepeti eklemek kolaylaşır.</p>
+            <h2>Listeniz birden fazla kategori içeriyorsa tek dosya yeterli.</h2>
+            <p>Kağıt, toner, dosyalama, ambalaj ve ofis sarf ürünlerini aynı teklif formunda paylaşabilirsiniz.</p>
         </div>
-        <div class="split__media">
-            <img src="<?= e(asset('images/products/ambalaj-sarf.jpg')); ?>" alt="Ambalaj ve sarf malzemeleri" loading="lazy">
-        </div>
+        <a class="btn btn--light" href="<?= e(url('teklif-al?urun_grubu=' . rawurlencode('Birden fazla ürün grubu'))); ?>">Toplu Teklif Al</a>
     </div>
 </section>
 

@@ -43,7 +43,7 @@ require __DIR__ . '/includes/header.php';
         <h1>Kurumsal kırtasiye ihtiyaçlarınız için bize ulaşın.</h1>
         <p>Teklif, ürün bilgisi, teslimat planı veya toplu sipariş talepleriniz için telefon, WhatsApp, e-posta ya da iletişim formunu kullanabilirsiniz. Saat 13:00'a kadar verilen siparişler aynı gün teslim edilir.</p>
         <div class="hero__actions">
-            <a class="btn" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20teklifi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan Yaz</a>
+            <a class="btn" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20teklifi%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Yaz</a>
             <a class="btn btn--outline" href="<?= e(maps_directions_url()); ?>" target="_blank" rel="noopener">Yol Tarifi Al</a>
         </div>
     </div>
@@ -53,14 +53,14 @@ require __DIR__ . '/includes/header.php';
     <div class="container contact-layout">
         <div>
             <div class="contact-tiles">
-                <a class="contact-tile" href="tel:+902582634567">
+                <a class="contact-tile" href="tel:+902582634567" data-track="phone_click">
                     <span class="contact-tile__icon"><?= $ico['phone']; ?></span>
                     <div>
                         <b>Telefon</b>
                         <p><?= e(CONTACT_PHONE); ?></p>
                     </div>
                 </a>
-                <a class="contact-tile contact-tile--wa" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>" target="_blank" rel="noopener">
+                <a class="contact-tile contact-tile--wa" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>" target="_blank" rel="noopener" data-track="whatsapp_click">
                     <span class="contact-tile__icon"><?= $ico['whatsapp']; ?></span>
                     <div>
                         <b>WhatsApp</b>

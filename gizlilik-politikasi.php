@@ -16,7 +16,7 @@ require __DIR__ . '/includes/header.php';
 
 <section class="section">
     <div class="container content-flow">
-        <p><strong>Son güncelleme:</strong> 13.06.2026</p>
+        <p><strong>Son güncelleme:</strong> 24.06.2026</p>
 
         <h2>1. Genel</h2>
         <p><?= e(COMPANY_NAME); ?> ("Şirket") olarak ziyaretçilerimizin ve müşterilerimizin gizliliğine önem veriyoruz. Bu politika, <?= e(SITE_URL); ?> web sitesi üzerinden toplanan kişisel bilgilerin işlenmesine ilişkin esasları açıklar. Kişisel verilerin işlenmesine dair detaylı bilgilendirme için <a class="inline-link" href="<?= e(url('kvkk')); ?>">KVKK Aydınlatma Metni</a>'ni inceleyebilirsiniz.</p>
@@ -37,7 +37,7 @@ require __DIR__ . '/includes/header.php';
         <p>Kişisel verileriniz, işleme amacının gerektirdiği süre ve ilgili mevzuatta öngörülen yasal saklama süreleri boyunca muhafaza edilir; sürenin sonunda silinir, yok edilir veya anonim hâle getirilir.</p>
 
         <h2>6. Çerezler</h2>
-        <p>Web sitemiz, oturum yönetimi için zorunlu çerezler kullanır. Ayrıntılar için <a class="inline-link" href="<?= e(url('cerez-politikasi')); ?>">Çerez Politikası</a>'na bakınız.</p>
+        <p>Web sitemiz, oturum yönetimi için zorunlu çerezler kullanır. Google Analytics yalnızca çerez bildirimi üzerinden onay verdiğinizde yüklenir. Ayrıntılar için <a class="inline-link" href="<?= e(url('cerez-politikasi')); ?>">Çerez Politikası</a>'na bakınız.</p>
 
         <h2>7. İletişim</h2>
         <p>Gizlilikle ilgili sorularınız için: <a class="inline-link" href="mailto:<?= e(CONTACT_EMAIL); ?>"><?= e(CONTACT_EMAIL); ?></a> · <?= e(CONTACT_PHONE); ?></p>

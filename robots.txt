@@ -84,4 +84,4 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-Sitemap: https://www.basarirlarkurumsal.com/sitemap.xml
+Sitemap: https://basarirlarkurumsal.com/sitemap.xml
