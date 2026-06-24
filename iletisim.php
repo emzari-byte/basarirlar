@@ -91,7 +91,7 @@ require __DIR__ . '/includes/header.php';
                 </div>
             </div>
         </div>
-        <form class="form-panel" method="post" action="<?= e(url('iletisim')); ?>" data-validate novalidate>
+        <form class="form-panel" method="post" action="<?= e(url('iletisim')); ?>" data-validate data-track-submit="contact_form_submit" novalidate>
             <input type="hidden" name="form_key" value="iletisim">
             <div class="honeypot">
                 <label>Web site <input type="text" name="website" tabindex="-1" autocomplete="off"></label>

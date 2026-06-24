@@ -39,7 +39,7 @@ require __DIR__ . '/includes/header.php';
             <h2>Rehber yetmezse listenizi gönderin, teklif hazırlayalım.</h2>
             <p>Ürün grubu, adet ve marka tercihinizi paylaşın; satın alma sürecini hızlandıralım.</p>
         </div>
-        <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>">Teklif Al</a>
+        <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>" data-track="blog_cta_click">Teklif Al</a>
     </div>
 </section>
 

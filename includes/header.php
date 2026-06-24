@@ -8,6 +8,16 @@ $pageImage = $pageImage ?? asset('images/hero-kurumsal-kirtasiye.jpg');
 $activePage = $activePage ?? 'anasayfa';
 $breadcrumbTrail = $breadcrumbTrail ?? [];
 $pageOgType = $pageOgType ?? 'website';
+$pageImageCanonical = $pageImage;
+if (!preg_match('#^https?://#i', $pageImageCanonical)) {
+    $imagePath = parse_url($pageImageCanonical, PHP_URL_PATH) ?: $pageImageCanonical;
+    $imagePath = ltrim($imagePath, '/');
+    $basePath = trim(BASE_PATH, '/');
+    if ($basePath !== '' && strpos($imagePath, $basePath . '/') === 0) {
+        $imagePath = substr($imagePath, strlen($basePath) + 1);
+    }
+    $pageImageCanonical = canonical_url($imagePath);
+}
 ?>
 <!doctype html>
 <html lang="tr">
@@ -31,11 +41,11 @@ $pageOgType = $pageOgType ?? 'website';
     <meta property="og:title" content="<?= e($pageTitle); ?>">
     <meta property="og:description" content="<?= e($pageDescription); ?>">
     <meta property="og:url" content="<?= e(canonical_url($pagePath)); ?>">
-    <meta property="og:image" content="<?= e(canonical_url(str_replace(url(''), '', $pageImage))); ?>">
+    <meta property="og:image" content="<?= e($pageImageCanonical); ?>">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?= e($pageTitle); ?>">
     <meta name="twitter:description" content="<?= e($pageDescription); ?>">
-    <meta name="twitter:image" content="<?= e(canonical_url(str_replace(url(''), '', $pageImage))); ?>">
+    <meta name="twitter:image" content="<?= e($pageImageCanonical); ?>">
     <link rel="icon" type="image/png" href="<?= e(asset('images/favicon.png')); ?>">
     <link rel="preload" as="image" href="<?= e(asset('images/hero-kurumsal-kirtasiye.jpg')); ?>">
     <link rel="stylesheet" href="<?= e(versioned_asset('css/style.css')); ?>">

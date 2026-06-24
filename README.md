@@ -9,7 +9,7 @@ Denizli odaklı, B2B kurumsal kırtasiye teklif toplama sitesi. Site; şirketler
 - Teklif formu: firma, yetkili, telefon, e-posta, ürün grubu, açıklama, dosya yükleme, KVKK onayı
 - Dosya doğrulama: en fazla 5 dosya, dosya başına 8 MB, güvenli uzantı/MIME kontrolü
 - Başarılı teklif sonrası `/tesekkurler` yönlendirmesi
-- Event hook noktaları: `quote_form_submit`, `quote_file_upload`, `whatsapp_click`, `phone_click`, `category_quote_click`
+- Event hook noktaları: `quote_form_submit`, `quote_file_upload`, `whatsapp_click`, `phone_click`, `category_quote_click`, `blog_cta_click`, `contact_form_submit`
 - Google Analytics etiketi çerez onayı verilmeden yüklenmez
 - LocalBusiness / Organization, FAQ, BlogPosting ve kategori schema çıktıları
 

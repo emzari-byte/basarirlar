@@ -66,7 +66,7 @@ require __DIR__ . '/includes/header.php';
             <aside class="quote-card article-aside">
                 <h2>Listeyi birlikte netleştirelim</h2>
                 <p>Kurumsal kırtasiye, kağıt, toner veya sarf listenizi gönderin; toptan fiyat ve teslimat planını paylaşalım.</p>
-                <a class="btn" href="<?= e(url('teklif-al')); ?>">Teklif Al</a>
+                <a class="btn" href="<?= e(url('teklif-al')); ?>" data-track="blog_cta_click">Teklif Al</a>
                 <a class="inline-link" href="<?= e(url('urun-gruplari')); ?>">Ürün gruplarını incele</a>
             </aside>
         </div>
