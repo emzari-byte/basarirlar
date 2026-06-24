@@ -320,14 +320,14 @@ function product_group_options(): array
 function services(): array
 {
     return [
-        ['title' => 'Kurumsal tedarik', 'text' => 'Şirket, kamu kurumu ve sanayi işletmelerinin düzenli tükettiği ürünler tek tedarik planında toplanır.'],
-        ['title' => 'Toplu sipariş yönetimi', 'text' => 'Farklı departmanlardan gelen listeler marka, adet ve teslimat önceliğine göre sadeleştirilir.'],
-        ['title' => 'Düzenli teslimat', 'text' => 'Hafta içi şehir içi servisle kurum içi ihtiyaçlar raflara veya ilgili birime zamanında ulaşır.'],
-        ['title' => 'Tekliflendirme', 'text' => 'Toptan ve proje bazlı fiyatlar ürün grubu, miktar ve marka standardına göre netleştirilir.'],
-        ['title' => 'Ürün danışmanlığı', 'text' => 'Orijinal, muadil veya alternatif ürün seçenekleri kullanım amacına göre karşılaştırılır.'],
-        ['title' => 'Kuruma özel çözüm', 'text' => 'Aylık tüketim, dönemsel proje veya yeni ofis kurulumu için esnek tedarik setleri hazırlanır.'],
-        ['title' => 'Faturalı satış', 'text' => 'Kurumsal satın alma süreçlerine uygun fatura, teslimat ve kayıt akışı desteklenir.'],
-        ['title' => 'İhtiyaç planlama', 'text' => 'Sık tükenen ürünler belirlenir, tekrar siparişleri kolaylaştıran standart liste yapısı kurulur.'],
+        ['title' => 'Kurumsal tedarik', 'text' => 'Kağıt, kalem, toner, dosyalama, arşivleme, ambalaj ve bilgisayar sarf ürünlerini tek satın alma listesinde toplarız.'],
+        ['title' => 'Toplu sipariş yönetimi', 'text' => 'Farklı departmanlardan gelen talepleri ürün grubu, adet ve marka standardına göre sadeleştirip karşılaştırılabilir teklif haline getiririz.'],
+        ['title' => 'Düzenli teslimat', 'text' => 'Sık tüketilen ürünlerde hafta içi şehir içi servis ve dönemsel teslimat planıyla operasyonun durmasını önleriz.'],
+        ['title' => 'Tekliflendirme', 'text' => 'Toptan ve proje bazlı alımlarda miktar, marka tercihi ve teslimat beklentisine göre kuruma özel fiyat hazırlarız.'],
+        ['title' => 'Ürün danışmanlığı', 'text' => 'Orijinal, muadil ve alternatif ürünleri kullanım amacı, kalite beklentisi ve bütçe dengesiyle birlikte değerlendiririz.'],
+        ['title' => 'Kuruma özel çözüm', 'text' => 'Yeni ofis kurulumu, dönemsel eğitim listesi veya aylık sarf planı için ihtiyaca özel ürün seti oluştururuz.'],
+        ['title' => 'Faturalı satış', 'text' => 'Muhasebe ve satın alma süreçlerinize uygun fatura, teslimat belgesi ve kayıt düzeniyle ilerleriz.'],
+        ['title' => 'İhtiyaç planlama', 'text' => 'Sık tükenen kalemleri belirleyip tekrar siparişleri kolaylaştıran standart liste ve stok takip alışkanlığı kurarız.'],
     ];
 }
 

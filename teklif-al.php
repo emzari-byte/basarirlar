@@ -41,8 +41,8 @@ require __DIR__ . '/includes/header.php';
         <h1>Listenizi yükleyin, kurumsal teklif sürecini başlatalım.</h1>
         <p>Excel, PDF, fotoğraf veya düz metin listenizi paylaşın. Ürün grubu, adet, marka tercihi ve teslimat beklentisine göre faturalı teklif hazırlayalım.</p>
         <div class="hero__actions">
-            <a class="btn" href="#teklif-formu">Ürün Listesi Yükle</a>
-            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20%C3%BCr%C3%BCn%20listemi%20payla%C5%9F%C4%B1p%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönder</a>
+            <a class="btn" href="#teklif-formu">Ürün Listenizi Yükleyin</a>
+            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20%C3%BCr%C3%BCn%20listemi%20payla%C5%9F%C4%B1p%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönderin</a>
         </div>
     </div>
 </section>

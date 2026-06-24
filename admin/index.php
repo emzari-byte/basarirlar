@@ -29,8 +29,8 @@ http_response_code(403);
 </head>
 <body>
 <main>
-    <h1>Admin altyapısı hazırlanmaktadır.</h1>
-    <p>Bu alan ileride ürün, teklif ve içerik yönetimi için yapılandırılacaktır.</p>
+    <h1>Yetkili erişim alanı</h1>
+    <p>Bu sayfa yalnızca yetkili kullanıcılar içindir. Site kullanımı için ana sayfaya dönebilirsiniz.</p>
 </main>
 </body>
 </html>

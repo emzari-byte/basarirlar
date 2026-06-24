@@ -1,9 +1,9 @@
 <header class="site-header" data-header>
     <div class="top-strip">
         <div class="container top-strip__inner">
-            <span><?= e(SITE_TAGLINE); ?> · <?= e(SITE_SLOGAN); ?></span>
+            <span>Kurumsal teklif, faturalı satış ve 13:00'a kadar aynı gün teslimat desteği</span>
             <a href="tel:+902582634567" data-track="phone_click"><?= e(CONTACT_PHONE); ?></a>
-            <a href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp: <?= e(CONTACT_WHATSAPP); ?></a>
+            <a href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=<?= e(rawurlencode('Merhaba, kurumsal kırtasiye ürün listemi paylaşıp teklif almak istiyorum.')); ?>" target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp: <?= e(CONTACT_WHATSAPP); ?></a>
         </div>
     </div>
     <nav class="navbar" aria-label="Ana menü">
@@ -30,9 +30,12 @@
                 ?>
                     <a class="<?= e(implode(' ', $classes)); ?>" href="<?= e($item['href']); ?>"><?= e($item['label']); ?></a>
                 <?php endforeach; ?>
-                <a class="nav-menu__quote" href="<?= e(url('teklif-al')); ?>" data-track="category_quote_click" data-category="header">Teklif Al</a>
+                <a class="nav-menu__quote" href="<?= e(url('teklif-al')); ?>" data-track="category_quote_click" data-category="header">Kurumsal Teklif Alın</a>
             </div>
-            <a class="navbar__cta" href="<?= e(url('teklif-al')); ?>" data-track="category_quote_click" data-category="header">Teklif Al</a>
+            <div class="navbar__actions">
+                <a class="navbar__phone" href="tel:+902582634567" data-track="phone_click" aria-label="Başarırlar Kurumsal telefonla ara"><?= e(CONTACT_PHONE); ?></a>
+                <a class="navbar__cta" href="<?= e(url('teklif-al')); ?>" data-track="category_quote_click" data-category="header">Kurumsal Teklif Alın</a>
+            </div>
         </div>
     </nav>
 </header>

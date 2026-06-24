@@ -12,8 +12,8 @@ require __DIR__ . '/includes/header.php';
         <h1>Kurumsal kırtasiye tedariğini liste, teklif ve teslimat akışına dönüştürüyoruz.</h1>
         <p>Satın alma listenizi paylaşın; ürün seçimi, muadil değerlendirme, faturalı satış ve şehir içi teslimat sürecini tek akışta netleştirelim.</p>
         <div class="hero__actions">
-            <a class="btn" href="<?= e(url('teklif-al')); ?>">Liste Yükleyerek Teklif Al</a>
-            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20listemi%20payla%C5%9Fmak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönder</a>
+            <a class="btn" href="<?= e(url('teklif-al')); ?>">Kurumsal Teklif Alın</a>
+            <a class="btn btn--outline" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20kurumsal%20k%C4%B1rtasiye%20listemi%20payla%C5%9Fmak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönderin</a>
         </div>
     </div>
 </section>
@@ -66,7 +66,7 @@ require __DIR__ . '/includes/header.php';
                 <h2>Listenizi gönderin, teslimat ve fiyat planını birlikte netleştirelim.</h2>
                 <p>Kağıt, toner, dosya, ambalaj ve ofis sarf kalemlerinizi tek dosyada paylaşabilirsiniz.</p>
             </div>
-            <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>">Kurumsal Teklif İste</a>
+            <a class="btn btn--light" href="<?= e(url('teklif-al')); ?>">Kurumsal Teklif Alın</a>
         </div>
     </div>
 </section>

@@ -70,8 +70,8 @@ require __DIR__ . '/includes/header.php';
                 <p>Fiyat, kalite, marka standardı ve kullanım yoğunluğu birlikte değerlendirilerek teklif hazırlanır.</p>
             </div>
             <div class="info-panel">
-                <h3>Genişletilebilir yapı</h3>
-                <p>Ürün grupları ve teklif sistemi ileride kategori, sepet veya admin yönetimine dönüşebilecek şekilde planlanır.</p>
+                <h3>Planlı tedarik düzeni</h3>
+                <p>Ürün grupları, teklif talepleri ve teslimat beklentileri satın alma ekibinizin takip edebileceği düzenli bir akışta yönetilir.</p>
             </div>
         </div>
     </div>

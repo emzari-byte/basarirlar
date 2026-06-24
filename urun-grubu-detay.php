@@ -48,7 +48,7 @@ require __DIR__ . '/includes/header.php';
         <h1><?= e($group['title']); ?> için kurumsal teklif alın.</h1>
         <p><?= e($group['description']); ?></p>
         <div class="hero__actions">
-            <a class="btn" href="<?= e(url('teklif-al?urun_grubu=' . rawurlencode($group['title']))); ?>" data-track="category_quote_click" data-category="<?= e($group['slug']); ?>">Bu kategori için teklif al</a>
+            <a class="btn" href="<?= e(url('teklif-al?urun_grubu=' . rawurlencode($group['title']))); ?>" data-track="category_quote_click" data-category="<?= e($group['slug']); ?>">Bu Kategori İçin Teklif Alın</a>
             <a class="btn btn--outline" href="<?= e(url('urun-gruplari')); ?>">Tüm ürün grupları</a>
         </div>
     </div>
@@ -105,8 +105,8 @@ require __DIR__ . '/includes/header.php';
             <div class="quote-card">
                 <h2><?= e($group['title']); ?> listeniz hazır mı?</h2>
                 <p>Ürün, adet ve marka tercihinizi iletin; toptan ve proje bazlı fiyat hazırlayalım.</p>
-                <a class="btn" href="<?= e(url('teklif-al?urun_grubu=' . rawurlencode($group['title']))); ?>" data-track="category_quote_click" data-category="<?= e($group['slug']); ?>">Bu kategori için teklif al</a>
-                <a class="inline-link" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20<?= e(rawurlencode($group['title'])); ?>%20i%C3%A7in%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp ile liste gönder</a>
+                <a class="btn" href="<?= e(url('teklif-al?urun_grubu=' . rawurlencode($group['title']))); ?>" data-track="category_quote_click" data-category="<?= e($group['slug']); ?>">Bu Kategori İçin Teklif Alın</a>
+                <a class="inline-link" href="https://wa.me/<?= e(CONTACT_WHATSAPP_E164); ?>?text=Merhaba%2C%20<?= e(rawurlencode($group['title'])); ?>%20i%C3%A7in%20kurumsal%20teklif%20almak%20istiyorum." target="_blank" rel="noopener" data-track="whatsapp_click">WhatsApp'tan Liste Gönderin</a>
             </div>
         </aside>
     </div>

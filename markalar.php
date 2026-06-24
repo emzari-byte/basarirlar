@@ -21,11 +21,15 @@ require __DIR__ . '/includes/header.php';
                 <p class="eyebrow">Öne çıkan markalar</p>
                 <h2>Satın alma ekiplerinin sık talep ettiği markalar</h2>
             </div>
-            <a class="btn btn--ghost" href="<?= e(url('teklif-al')); ?>">Marka Tercihiyle Teklif Al</a>
+            <a class="btn btn--ghost" href="<?= e(url('teklif-al')); ?>">Marka Tercihiyle Kurumsal Teklif Alın</a>
         </div>
         <div class="brand-grid brand-grid--featured">
             <?php foreach (featured_brands() as $brand): ?>
-                <div class="brand-card"><?= e($brand['name']); ?></div>
+                <div class="brand-card brand-card--ready">
+                    <strong><?= e($brand['name']); ?></strong>
+                    <span><?= e($brand['category']); ?></span>
+                    <small>Teklifte marka tercihi belirtilebilir.</small>
+                </div>
             <?php endforeach; ?>
         </div>
     </div>
@@ -50,6 +54,7 @@ require __DIR__ . '/includes/header.php';
                 <div class="brand-card" data-brand-category="<?= e($brand['category']); ?>">
                     <strong><?= e($brand['name']); ?></strong>
                     <span><?= e($brand['category']); ?></span>
+                    <small>Marka veya muadil isteğinizi teklif aşamasında yazabilirsiniz.</small>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -63,7 +68,7 @@ require __DIR__ . '/includes/header.php';
             <h2>Standart markanızı koruyabilir, gerekirse muadil maliyet avantajı görebilirsiniz.</h2>
             <p>Teklif formunda kullandığınız marka, model veya muadil isteğini yazın. Satın alma ekibiniz için karşılaştırılabilir ve faturalı teklif hazırlanır.</p>
             <div class="hero__actions">
-                <a class="btn" href="<?= e(url('teklif-al')); ?>">Marka Tercihiyle Teklif Al</a>
+                <a class="btn" href="<?= e(url('teklif-al')); ?>">Kurumsal Teklif Alın</a>
             </div>
         </div>
         <div class="split__media">
